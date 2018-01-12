@@ -8,7 +8,7 @@
 <meta property="og:description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 Process사람이 만든 규칙(프로그램)에 따라 움직 이는…">
 <meta property="og:locale" content="korean">
 <meta property="og:image" content="http://yoursite.com/images/default.jpg">
-<meta property="og:updated_time" content="2018-01-12T05:58:47.745Z">
+<meta property="og:updated_time" content="2018-01-12T06:11:18.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="컴퓨터 프로그램의 구조와 해석">
 <meta name="twitter:description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 Process사람이 만든 규칙(프로그램)에 따라 움직 이는…">
@@ -50,13 +50,14 @@
 <p><br><br>좋은 프로그래밍언어는 아래와 같은 일을 할 수 있다.<br>기본식 - 언어에서 가장 단순한 것<br>엮어내는 수단 - 간단한 것(기본식)을 모아 복잡한 것으로 만듬<br>요약하는 수단 - 복잡한 것(엮어내는 수단)에 이름을 붙여 하나로 다룰수 있도록 간추림<br><br><br>그리고 프로그램을 짤때 두가지가 사용된다.<br><br>데이터 - 프로시저에서 쓰려는 <code>물건</code><br>프로시저 - 데이터를 처리하는 <code>규칙</code><br><br><br></p>
 <h2 id="식"><a href="#식" class="headerlink" title="식"></a>식</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(+ 137 349)</span><br></pre></td></tr></table></figure>
 <p>여기서 <code>+</code>는 <strong>연산자</strong> 이다.<br><code>137</code>과 <code>349</code>는 <strong>피연산자</strong>가 된다.<br>이 둘을 조합한 것을 <strong>엮은 식</strong> 이라 한다.<br>그리고 이 엮은 식을 계산한 값 <code>486</code>은 <strong>프로시저</strong>에 <strong>인자</strong>를 넘겨 얻는다.<br><br></p>
-<h2 id="이름과-환경"><a href="#이름과-환경" class="headerlink" title="이름과 환경"></a>이름과 환경</h2><p>(define size 2)<br>여기서 <code>define</code>은 이름을 정의한다는 뜻이다.<br><code>size</code>는 define에 의해 정의된 이름으로 <strong>변수</strong>라 불린다.<br>그리고 <code>2</code>는 변수의 값이 된다.</p>
+<h2 id="변수와-환경"><a href="#변수와-환경" class="headerlink" title="변수와 환경"></a>변수와 환경</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(define size 2)</span><br><span class="line">szie // 2</span><br></pre></td></tr></table></figure>
+<p>여기서 <code>define</code>은 이름을 정의한다는 뜻이다.<br><code>size</code>는 define에 의해 정의된 이름으로 <strong>변수</strong>라 불린다.<br>그리고 <code>2</code>는 변수의 <strong>값</strong>이 된다.<br><br><br>그런데 <code>size</code>를 불러오면 <code>2</code>라는 값이 나온다는것은, 어딘가에 저장해둔 메모리가 있다는 뜻이다.<br>이런 기억공간을 <strong>환경</strong> 이라고 한다.</p>
 </div><div class="article__tags"><a class="article__tags__item" href="/tags/SICP/">SICP</a></div><div class="article__author" itemscope itemprop="author" itemtype="https://schema.org/Person"><img class="article__author__image" src="/images/profile.jpeg" alt="circleGiven"><a class="article__author__link" title="About circleGiven" rel="author">circleGiven</a><p class="article__author__desc">초보 개발자</p><div class="article__author__socials"><a class="article__author__socials__item" href="/atom.xml" title="rss" target="_blank"><i class="fa fa-rss"></i></a></div><meta itemprop="name" content="circleGiven"></div><div class="sharer" id="sharer"><div class="sharer-inner"><div class="sharer__right"><button class="sharer__item" id="sharer-facebook"><i class="fa fa-facebook-official"></i></button><button class="sharer__item" id="sharer-twitter"><i class="fa fa-twitter"></i></button><button class="sharer__item" id="sharer-pinterest"><i class="fa fa-pinterest"></i></button><button class="sharer__item" id="sharer-pocket"><i class="fa fa-get-pocket"></i></button></div></div></div><!-- Disqus Code--><div id="disqus_thread"></div><script>(function() {
   var d = document, s = d.createElement('script');
   s.src = '//circleGiven.disqus.com/embed.js';
   s.setAttribute('data-timestamp', +new Date());
   (d.head || d.body).appendChild(s);
-})();</script><noscript>Enable JavaScript to see comments.</noscript><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-01-12T05:58:47.745Z"><meta itemprop="articleBody" content="
+})();</script><noscript>Enable JavaScript to see comments.</noscript><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-01-12T06:11:18.984Z"><meta itemprop="articleBody" content="
 ‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.
 
 
