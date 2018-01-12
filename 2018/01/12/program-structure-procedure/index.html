@@ -1,34 +1,34 @@
 <!DOCTYPE html><html lang="korean"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>컴퓨터 프로그램의 구조와 해석 | Dev diary</title><link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/css/highlights/dracula.css"><link rel="canonical" href="http://yoursite.com/2018/01/12/program-structure-procedure/"/>
-<meta name="description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 (Process)사람이 만든 규칙(프로그램)에 따라 움직…">
+<meta name="description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 Process사람이 만든 규칙(프로그램)에 따라 움직 이는…">
 <meta name="keywords" content="SICP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="컴퓨터 프로그램의 구조와 해석">
 <meta property="og:url" content="http://yoursite.com/2018/01/12/program-structure-procedure/">
 <meta property="og:site_name" content="Dev diary">
-<meta property="og:description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 (Process)사람이 만든 규칙(프로그램)에 따라 움직…">
+<meta property="og:description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 Process사람이 만든 규칙(프로그램)에 따라 움직 이는…">
 <meta property="og:locale" content="korean">
 <meta property="og:image" content="http://yoursite.com/images/default.jpg">
-<meta property="og:updated_time" content="2018-01-12T07:13:38.209Z">
+<meta property="og:updated_time" content="2018-01-12T08:09:53.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="컴퓨터 프로그램의 구조와 해석">
-<meta name="twitter:description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 (Process)사람이 만든 규칙(프로그램)에 따라 움직…">
+<meta name="twitter:description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 Process사람이 만든 규칙(프로그램)에 따라 움직 이는…">
 <meta name="twitter:image" content="http://yoursite.com/images/default.jpg"><meta property="article:author" content="circleGiven"><meta property="twitter:label1" content="Published at"><meta property="twitter:data1" content="2018-01-12 10:12:15"><meta property="twitter:label2" content="Written by"><meta property="twitter:data2" content="circleGiven"><link rel="icon" href="/images/favicon.png"><link rel="alternate" href="/atom.xml" type="application/atom+xml" title="Dev diary"></head><body itemscope itemtype="https://schema.org/WebPage"><nav class="menu" id="menu"><div class="menu-inner"><div class="menu__left-area"><div class="menu__item"><a class="menu__item__link menu__item__link--brand" href="/" title="Home" rel="home"><img class="menu__item__link--brand__image" src="/images/favicon.png" alt="Dev diary"><span class="menu__item__link--brand__label">Dev diary</span></a></div></div><div class="menu__right-area"><div class="menu__item"><a class="menu__item__link" href="/">Home</a></div><div class="menu__item"><a class="menu__item__link" href="/about">About</a></div><div class="menu__item"><a class="menu__item__link" href="/archives">Archives</a></div></div></div></nav><div class="page-background"></div><div class="content-container"><div class="content-outer"><div class="content-inner" itemscope itemtype="https://schema.org/Blog"><article class="article" id="article" itemscope itemtype="https://schema.org/BlogPosting"><h1 class="article__title" itemprop="headline">컴퓨터 프로그램의 구조와 해석</h1><div class="article__meta"><time class="article__meta__time" datetime="2018-01-12T01:12:15.000Z" itemprop="datePublished">2018-01-12 10:12:15</time><div class="article__meta__categories"><a class="article__meta__categories__item" href="/categories/Programming/">Programming</a><span class="article__meta__categories__separator">></span><a class="article__meta__categories__item" href="/categories/Programming/SICP/">SICP</a></div></div><hr><div class="article__contents"><blockquote>
 <p>‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.<br>이 책의 컨셉은 ‘마법사’다.<br>그리고 책에서는 <strong>Scheme(Lisp의 사투리)</strong>라는 프로그래밍 언어를 쓴다.</p>
 </blockquote>
 <p><br><br></p>
-<h2 id="프로세스-Process"><a href="#프로세스-Process" class="headerlink" title="프로세스 (Process)"></a>프로세스 (Process)</h2><p>사람이 만든 규칙(<strong>프로그램</strong>)에 따라 움직 이는 것, 움직이는 과정</p>
+<h2 id="프로세스-Process"><a href="#프로세스-Process" class="headerlink" title="프로세스 Process"></a>프로세스 Process</h2><p>사람이 만든 규칙(<strong>프로그램</strong>)에 따라 움직 이는 것, 움직이는 과정</p>
 <blockquote>
 <p>마법사가 마법을 일으키는데 주문을 말하는 과정</p>
 </blockquote>
 <p><br><br></p>
-<h2 id="계산-프로세스-Computational-Process"><a href="#계산-프로세스-Computational-Process" class="headerlink" title="계산 프로세스 (Computational Process)"></a>계산 프로세스 (Computational Process)</h2><p><strong>데이터</strong>라고 하는것을 조작하면서 어떤 일(<strong>프로세스</strong>)을 한다.</p>
+<h2 id="계산-프로세스-Computational-Process"><a href="#계산-프로세스-Computational-Process" class="headerlink" title="계산 프로세스 Computational Process"></a>계산 프로세스 Computational Process</h2><p><strong>데이터</strong>라고 하는것을 조작하면서 어떤 일(<strong>프로세스</strong>)을 한다.</p>
 <p><br><br></p>
-<h2 id="프로그램-Program"><a href="#프로그램-Program" class="headerlink" title="프로그램 (Program)"></a>프로그램 (Program)</h2><p><strong>프로세스</strong>가 일어나도록 사람이 만든 규칙</p>
+<h2 id="프로그램-Program"><a href="#프로그램-Program" class="headerlink" title="프로그램 Program"></a>프로그램 Program</h2><p><strong>프로세스</strong>가 일어나도록 사람이 만든 규칙</p>
 <blockquote>
 <p>주문</p>
 </blockquote>
 <p><br><br></p>
-<h2 id="프로그래밍-언어-Programming-language"><a href="#프로그래밍-언어-Programming-language" class="headerlink" title="프로그래밍 언어 (Programming language)"></a>프로그래밍 언어 (Programming language)</h2><p><strong>프로세스</strong>가 작동하도록 하는 <strong>프로그램</strong>은 여러 식으로 이루어지는데, 이런 식을 적을때 사용하는 말이 <strong>프로그래밍 언어</strong>이다.</p>
+<h2 id="프로그래밍-언어-Programming-language"><a href="#프로그래밍-언어-Programming-language" class="headerlink" title="프로그래밍 언어 Programming language"></a>프로그래밍 언어 Programming language</h2><p><strong>프로세스</strong>가 작동하도록 하는 <strong>프로그램</strong>은 여러 식으로 이루어지는데, 이런 식을 적을때 사용하는 말이 <strong>프로그래밍 언어</strong>이다.</p>
 <blockquote>
 <p>주문을 만드는 언어</p>
 </blockquote>
@@ -38,7 +38,7 @@
 <p>특정언어로 만든 주문 &gt;&gt; 주문 말하기 &gt;&gt; 마법</p>
 </blockquote>
 <p><br><br></p>
-<h2 id="오류잡기-Debug"><a href="#오류잡기-Debug" class="headerlink" title="오류잡기 (Debug)"></a>오류잡기 (Debug)</h2><p><strong>프로그램</strong>속에서 문제를 일으키는 오류가 어디에 숨어있는지 찾아내고 고치는 과정</p>
+<h2 id="오류잡기-Debug"><a href="#오류잡기-Debug" class="headerlink" title="오류잡기 Debug"></a>오류잡기 Debug</h2><p><strong>프로그램</strong>속에서 문제를 일으키는 오류가 어디에 숨어있는지 찾아내고 고치는 과정</p>
 <blockquote>
 <p>주문이 제대로 일어나지 않는 다면 주문이 어디가 잘못됬는지 알아야 된다</p>
 </blockquote>
@@ -56,22 +56,24 @@
 </blockquote>
 <p>그리고 이 엮은 식을 계산한 값 <code>486</code>은 <strong>프로시저</strong>에 <strong>인자</strong>를 넘겨 얻는다.</p>
 <p>즉, 연산자는 <strong>프로시저</strong>가 되고 피연산자는 <strong>인자</strong>가 된다.<br><br></p>
-<h2 id="변수와-환경-Variable-amp-Environment"><a href="#변수와-환경-Variable-amp-Environment" class="headerlink" title="변수와 환경 (Variable &amp; Environment)"></a>변수와 환경 (Variable &amp; Environment)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(define size 2)</span><br><span class="line">size // 2</span><br></pre></td></tr></table></figure>
+<h2 id="변수와-환경-Variable-amp-Environment"><a href="#변수와-환경-Variable-amp-Environment" class="headerlink" title="변수와 환경 Variable &amp; Environment"></a>변수와 환경 Variable &amp; Environment</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(define size 2)</span><br><span class="line">size // 2</span><br></pre></td></tr></table></figure>
 <p>여기서 <code>define</code>은 이름을 정의한다는 뜻이다.<br><code>size</code>는 define에 의해 정의된 이름으로 <strong>변수</strong>라 불린다.<br>그리고 <code>2</code>는 변수의 <strong>값</strong>이 된다.<br><br><br>그런데 <code>size</code>를 불러오면 <code>2</code>라는 값이 나온다는것은, 어딘가에 저장해둔 메모리가 있다는 뜻이다.<br>이런 기억공간을 <strong>환경</strong> 이라고 한다.<br><br><br></p>
-<h2 id="프로시저-Procedure"><a href="#프로시저-Procedure" class="headerlink" title="프로시저 (Procedure)"></a>프로시저 (Procedure)</h2><p>앞서 프로시저는 데이터를 처리하는 규칙이라 하였다.<br>이번엔 프로시저를 정의해 보겠다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(define (square x) (* x x))</span><br></pre></td></tr></table></figure></p>
+<h2 id="프로시저-Procedure"><a href="#프로시저-Procedure" class="headerlink" title="프로시저 Procedure"></a>프로시저 Procedure</h2><p>앞서 프로시저는 데이터를 처리하는 규칙이라 하였다.<br>이번엔 프로시저를 정의해 보겠다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(define (square x) (* x x))</span><br></pre></td></tr></table></figure></p>
 <p>이건 <code>square</code>라고 불리우는 프로시저를 정의한 형태이다.<br>x를 인자로 받아들여 값을 나타낼 것이다.</p>
 <p>이미 있던 다른 프로시저들을 하나로 묶어 만든 프로시저를 <strong>묶음 프로시저(compound procedure)</strong>라고 한다.<br>위에서 다른 프로시저는 바로 <code>*</code>연산자가 된다.</p>
-<p>그러므로 <code>square</code>는 <strong>묶음 프로시저</strong>가 된다.</p>
+<p>그러므로 <code>square</code>는 <strong>묶음 프로시저</strong>가 된다.<br><br><br></p>
+<h2 id="조건-식과-술어-Predicate"><a href="#조건-식과-술어-Predicate" class="headerlink" title="조건 식과 술어 Predicate"></a>조건 식과 술어 Predicate</h2><p>만약 조건이 들어가는 경우는 어떻게 표현해야될까?<br>절대값과 같은 경우 말이다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(define (abs x)</span><br><span class="line"> (cond ((&gt; x 0) x)</span><br><span class="line">       ((= x 0) 0)</span><br><span class="line">       ((&lt; x 0) (- x))</span><br><span class="line"> )</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>여기서 cond 옆으로 나열된 것을 <strong>절(clause)</strong>라고 한다.<br>그리고 (&gt; x 0)처럼 결과가 참 또는 거짓을 나타내는 식을 <strong>술어(predicate)</strong>라고 한다.<br>그 옆에 x는 술어의 짝인 <strong>결과 식(consequent expression)</strong> 이라고 한다.</p>
 </div><div class="article__tags"><a class="article__tags__item" href="/tags/SICP/">SICP</a></div><div class="article__author" itemscope itemprop="author" itemtype="https://schema.org/Person"><img class="article__author__image" src="/images/profile.jpeg" alt="circleGiven"><a class="article__author__link" title="About circleGiven" rel="author">circleGiven</a><p class="article__author__desc">초보 개발자</p><div class="article__author__socials"><a class="article__author__socials__item" href="/atom.xml" title="rss" target="_blank"><i class="fa fa-rss"></i></a></div><meta itemprop="name" content="circleGiven"></div><div class="sharer" id="sharer"><div class="sharer-inner"><div class="sharer__right"><button class="sharer__item" id="sharer-facebook"><i class="fa fa-facebook-official"></i></button><button class="sharer__item" id="sharer-twitter"><i class="fa fa-twitter"></i></button><button class="sharer__item" id="sharer-pinterest"><i class="fa fa-pinterest"></i></button><button class="sharer__item" id="sharer-pocket"><i class="fa fa-get-pocket"></i></button></div></div></div><!-- Disqus Code--><div id="disqus_thread"></div><script>(function() {
   var d = document, s = d.createElement('script');
   s.src = '//circleGiven.disqus.com/embed.js';
   s.setAttribute('data-timestamp', +new Date());
   (d.head || d.body).appendChild(s);
-})();</script><noscript>Enable JavaScript to see comments.</noscript><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-01-12T07:13:38.209Z"><meta itemprop="articleBody" content="
+})();</script><noscript>Enable JavaScript to see comments.</noscript><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-01-12T08:09:53.773Z"><meta itemprop="articleBody" content="
 ‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.
 
 
-프로세스 (Process)사람이 만든 규칙(프로그램)에 따라 움직 이는 것, 움직이는 과정
+프로세스 Process사람이 만든 규칙(프로그램)에 따라 움직 이는 것, 움직이는 과정
 
 마법사가 마법을 일으키는데 주문을 말하는 과정
 
