@@ -8,7 +8,7 @@
 <meta property="og:description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 Process사람이 만든 규칙(프로그램)에 따라 움직 이는…">
 <meta property="og:locale" content="korean">
 <meta property="og:image" content="http://yoursite.com/images/default.jpg">
-<meta property="og:updated_time" content="2018-01-12T08:21:03.663Z">
+<meta property="og:updated_time" content="2018-01-13T03:39:24.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="컴퓨터 프로그램의 구조와 해석">
 <meta name="twitter:description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 Process사람이 만든 규칙(프로그램)에 따라 움직 이는…">
@@ -65,13 +65,62 @@
 <h2 id="조건-식과-술어-Predicate"><a href="#조건-식과-술어-Predicate" class="headerlink" title="조건 식과 술어 Predicate"></a>조건 식과 술어 Predicate</h2><p>만약 조건이 들어가는 경우는 어떻게 표현해야될까?<br>절대값과 같은 경우 말이다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(define (abs x)</span><br><span class="line"> (cond ((&gt; x 0) x)</span><br><span class="line">       ((= x 0) 0)</span><br><span class="line">       ((&lt; x 0) (- x))</span><br><span class="line"> )</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
 <p>여기서 <code>cond</code> 옆으로 나열된 것을 <strong>절(clause)</strong>라고 한다.<br>그리고 <code>(&gt; x 0)</code>처럼 결과가 참 또는 거짓을 나타내는 식을 <strong>술어(predicate)</strong>라고 한다.<br>그 옆에 <code>x</code>는 술어의 짝인 <strong>결과 식(consequent expression)</strong> 이라고 한다.</p>
 <p><code>cond</code>와 비슷하게 이런식으로도 가능하다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(define (abs x)</span><br><span class="line"> (if (&lt; x 0)</span><br><span class="line">     (- x)</span><br><span class="line">     x</span><br><span class="line"> )</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p>여기서 <code>(&lt; x 0)</code>은 <strong>술어</strong>가 되고 <code>(- x)</code>와 <code>x</code>는 <strong>결과 식</strong> 이 된다.</p>
+<p>여기서 <code>(&lt; x 0)</code>은 <strong>술어</strong>가 되고 <code>(- x)</code>와 <code>x</code>는 <strong>결과 식</strong> 이 된다.<br><br><br></p>
+<h2 id="함수와-프로시저의-차이"><a href="#함수와-프로시저의-차이" class="headerlink" title="함수와 프로시저의 차이"></a>함수와 프로시저의 차이</h2><p>수학 함수와 달리 프로시저는 반드시 <strong>효율성</strong>을 갖추어야 한다.<br>수학 함수가 어떤 성질을 밝히는 일이라면<br>프로시저는 <strong>무엇을 어떻게 만들지</strong> 라는 것이다.<br><br><br></p>
+<h2 id="뉴튼법으로-제곱근-구하기"><a href="#뉴튼법으로-제곱근-구하기" class="headerlink" title="뉴튼법으로 제곱근 구하기"></a>뉴튼법으로 제곱근 구하기</h2><p>이 책에서는 제곱근을 구하는 방법으로 뉴튼법이라는 것을 사용하고 있다.</p>
+<blockquote>
+<p>뉴튼법 : x의 제곱근에 가까운 값 y가 있을때, y와 x/y의 평균을 구하여 그 평균이 제곱근에 가까운 값을 찾는 것</p>
+</blockquote>
+<p><br><br>제곱근을 얻으려는 수 : x<br>제곱근에 가까운 값 : y</p>
+<table>
+<thead>
+<tr>
+<th>가까운 값 (y)</th>
+<th>몫</th>
+<th>평균</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2/1=2</td>
+<td>(2+1)/2=1.5</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>2/1.5=1.3333</td>
+<td>(1.333+1.5)/2=1.4167</td>
+</tr>
+<tr>
+<td>1.4167</td>
+<td>2/1.4167=1.4118</td>
+<td>(1.4167+1.4118)/2=1.4142</td>
+</tr>
+<tr>
+<td>1.4142</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>위 테이블을 보고 필요한 프로시저를 나열해 보았다.</p>
+<ul>
+<li>제곱을 하는 프로시저</li>
+<li>절대값을 구하는 프로시저 (구한 제곱근의 제곱과 실제 값의 제곱의 차를 양수로 구하기 위해)</li>
+<li>평균을 구하는 프로시저</li>
+<li>몫을 구하는 프로시저</li>
+<li>제곱근에 가까운 값을 구하는 프로시저</li>
+<li>제곱근에 가까운 값이 절대값이랑 비슷한지 판단하는 프로시저</li>
+<li>제곱근에 가까운 값을 구하는 프로시저를 계속 돌리는 프로시저</li>
+<li>제곱근을 구하는 프로시저<br><br></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">// 제곱을 하는 프로시저</span><br><span class="line">(define (square x)</span><br><span class="line"> (* x x)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 절대값을 구하는 프로시저</span><br><span class="line">(define (abs x)</span><br><span class="line"> (if (&lt; x 0)</span><br><span class="line">     (- x)</span><br><span class="line">     x)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 평균을 구하는 프로시저</span><br><span class="line">(define (average x y)</span><br><span class="line"> (/ (+ x y) 2)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 몫을 구하는 프로시저</span><br><span class="line">(define getMok(y x)</span><br><span class="line"> (/ x y)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 제곱근에 가까운 값을 구하는 프로시저</span><br><span class="line">(define (improve y x)</span><br><span class="line"> (average y (/ x y))</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 제곱근에 가까운 값이 절대값이랑 비슷한지 판단하는 프로시저</span><br><span class="line">(define (good-enough? y x)</span><br><span class="line"> (&lt; (abs (- (square y) x)) 0.001)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 제곱근에 가까운 값을 구하는 프로시저를 계속 돌리는 프로시저</span><br><span class="line">(define (sqrt-iter y x)(</span><br><span class="line">   if (good-enough? y x)</span><br><span class="line">    result</span><br><span class="line">    (sqrt-iter (improve y x)</span><br><span class="line">  )</span><br><span class="line"> )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">// 제곱근을 구하는 프로시저</span><br><span class="line">(define (sqrt x)</span><br><span class="line"> (sqrt-iter 1 x)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 </div><div class="article__tags"><a class="article__tags__item" href="/tags/SICP/">SICP</a></div><div class="article__author" itemscope itemprop="author" itemtype="https://schema.org/Person"><img class="article__author__image" src="/images/profile.jpeg" alt="circleGiven"><a class="article__author__link" title="About circleGiven" rel="author">circleGiven</a><p class="article__author__desc">초보 개발자</p><div class="article__author__socials"><a class="article__author__socials__item" href="/atom.xml" title="rss" target="_blank"><i class="fa fa-rss"></i></a></div><meta itemprop="name" content="circleGiven"></div><div class="sharer" id="sharer"><div class="sharer-inner"><div class="sharer__right"><button class="sharer__item" id="sharer-facebook"><i class="fa fa-facebook-official"></i></button><button class="sharer__item" id="sharer-twitter"><i class="fa fa-twitter"></i></button><button class="sharer__item" id="sharer-pinterest"><i class="fa fa-pinterest"></i></button><button class="sharer__item" id="sharer-pocket"><i class="fa fa-get-pocket"></i></button></div></div></div><!-- Disqus Code--><div id="disqus_thread"></div><script>(function() {
   var d = document, s = d.createElement('script');
   s.src = '//circleGiven.disqus.com/embed.js';
   s.setAttribute('data-timestamp', +new Date());
   (d.head || d.body).appendChild(s);
-})();</script><noscript>Enable JavaScript to see comments.</noscript><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-01-12T08:21:03.663Z"><meta itemprop="articleBody" content="
+})();</script><noscript>Enable JavaScript to see comments.</noscript><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-01-13T03:39:24.319Z"><meta itemprop="articleBody" content="
 ‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.
 
 
