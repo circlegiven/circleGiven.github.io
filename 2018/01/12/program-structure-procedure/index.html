@@ -8,7 +8,7 @@
 <meta property="og:description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 Process사람이 만든 규칙(프로그램)에 따라 움직 이는…">
 <meta property="og:locale" content="korean">
 <meta property="og:image" content="http://yoursite.com/images/default.jpg">
-<meta property="og:updated_time" content="2018-01-13T11:08:37.284Z">
+<meta property="og:updated_time" content="2018-01-13T11:11:37.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="컴퓨터 프로그램의 구조와 해석">
 <meta name="twitter:description" content="‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.   프로세스 Process사람이 만든 규칙(프로그램)에 따라 움직 이는…">
@@ -122,12 +122,12 @@
 <h2 id="되돌리거나-반복하는-프로세스-recursion-amp-iteration"><a href="#되돌리거나-반복하는-프로세스-recursion-amp-iteration" class="headerlink" title="되돌리거나 반복하는 프로세스 recursion &amp; iteration"></a>되돌리거나 반복하는 프로세스 recursion &amp; iteration</h2><p>팩토리얼을 구해보자.</p>
 <p>첫번째 방법으로, 처음 값을 하나씩 빼면서 1에 갈때까지 계속해서 계산하는 방식이다.</p>
 <blockquote>
-<p>n! = n<em>(n-1)</em>(n-2)<em>(n-3)…3</em>2<em>1<br>     = n[(n-1)</em>(n-2)<em>(n-3)…3</em>2<em>1]<br>     = n</em>(n-1)!</p>
+<p>n! = n*(n-1)*(n-2)*(n-3)…3*2*1<br>     = n[(n-1)*(n-2)*(n-3)…3*2<em>\1]<br>     = n\</em>(n-1)!</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(define (factorial n)</span><br><span class="line"> (if (= n 1)</span><br><span class="line">     1</span><br><span class="line">     (* n (factorial (- n 1)))</span><br><span class="line"> )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(define (factorial n)</span><br><span class="line"> (if (= n 1)</span><br><span class="line">     1</span><br><span class="line">     (\* n (factorial (- n 1)))</span><br><span class="line"> )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>위와 같이 적용을 하면 아래와 같은 구조를 띄게 된다.</p>
 <blockquote>
-<p>(factorial 6)<br>(* 6 (factorial 5))<br>(<em> 6 (</em> 5 (factorial 4)))<br>(<em> 6 (</em> 5 (<em> 4 (factorial 3))))<br>(</em> 6 (<em> 5 (</em> 4 (<em> 3 (factorial 2)))))<br>(</em> 6 (<em> 5 (</em> 4 (<em> 3 (</em> 2 (factorial 1))))))<br>(<em> 6 (</em> 5 (<em> 4 (</em> 3 (<em> 2 1)))))<br>(</em> 6 (<em> 5 (</em> 4 (<em> 3 2))))<br>(</em> 6 (<em> 5 (</em> 4 6)))<br>(<em> 6 (</em> 5 24))<br>(* 6 120)<br>720</p>
+<p>(factorial 6)<br>(* 6 (factorial 5))<br>(* 6 (* 5 (factorial 4)))<br>(* 6 (* 5 (* 4 (factorial 3))))<br>(* 6 (* 5 (* 4 (* 3 (factorial 2)))))<br>(* 6 (* 5 (* 4 (* 3 (* 2 (factorial 1))))))<br>(* 6 (* 5 (* 4 (* 3 (* 2 1)))))<br>(* 6 (* 5 (* 4 (* 3 2))))<br>(* 6 (* 5 (* 4 6)))<br>(* 6 (* 5 24))<br>(* 6 120)<br>720</p>
 </blockquote>
 <p>위와 같은 구조를 <strong>선형 재귀 프로세스(linear recursive process)</strong>라고 한다.<br>이처럼 곧바로 셈하지 못하고 미루어 놓은 연산이 끈 처럼 이어지는 것은 <strong>재귀 프로세스</strong>의 특징이다.<br><br></p>
 <p>두번째 방법으로, 1부터 하나씩 더해서 처음 값(n)에 다를때까지 같은 일을 되풀이 하는 방식으로 해보자.<br>지금까지 곱한 값을 product로, 1부터 n까지 헤아리는 변수를 counter라 할때 아래와 같은 규칙을 띈다.</p>
@@ -145,7 +145,7 @@
   s.src = '//circleGiven.disqus.com/embed.js';
   s.setAttribute('data-timestamp', +new Date());
   (d.head || d.body).appendChild(s);
-})();</script><noscript>Enable JavaScript to see comments.</noscript><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-01-13T11:08:37.284Z"><meta itemprop="articleBody" content="
+})();</script><noscript>Enable JavaScript to see comments.</noscript><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-01-13T11:11:37.538Z"><meta itemprop="articleBody" content="
 ‘컴퓨터 프로그램의 구조와 해석 (SICP)’을 읽으며 정리한 글이다.이 책의 컨셉은 ‘마법사’다.그리고 책에서는 Scheme(Lisp의 사투리)라는 프로그래밍 언어를 쓴다.
 
 
