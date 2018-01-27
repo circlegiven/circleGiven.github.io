@@ -8,7 +8,7 @@
 <meta property="og:description" content="숫자 Number자바스크립트는 다른언어와 달리 정수와 실수를 구분하지 않는다.자바스크립트는 모든 숫자를 실수로 표현하는데 IEEE 754 표준에서 정의한 64비트 실수 형태로 표현한다.하지만, 배열 인덱싱이나 비트 연산같은 특정연산은 32비트…">
 <meta property="og:locale" content="korean">
 <meta property="og:image" content="http://yoursite.com/images/js.svg">
-<meta property="og:updated_time" content="2018-01-27T07:03:55.537Z">
+<meta property="og:updated_time" content="2018-01-27T12:08:05.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript | 타입, 값, 변수">
 <meta name="twitter:description" content="숫자 Number자바스크립트는 다른언어와 달리 정수와 실수를 구분하지 않는다.자바스크립트는 모든 숫자를 실수로 표현하는데 IEEE 754 표준에서 정의한 64비트 실수 형태로 표현한다.하지만, 배열 인덱싱이나 비트 연산같은 특정연산은 32비트…">
@@ -146,9 +146,214 @@
 <h1 id="변경-불가능한-원시타입-값과-변경가능한-객체"><a href="#변경-불가능한-원시타입-값과-변경가능한-객체" class="headerlink" title="변경 불가능한 원시타입 값과 변경가능한 객체"></a>변경 불가능한 원시타입 값과 변경가능한 객체</h1><p>자바스크립트에서 <strong>원시타입</strong>과 <strong>객체</strong>는 근본적인 차이점이 있다.<br>원시타입은 <strong>변경이 불가능</strong>하다.<br>숫자의 경우 바꾸면, 다른 수가 된다. 불리언도 마찬가지이다.</p>
 <p>그러나 문자열의 경우 다르게 생각할 수 있다.<br>기본적으로 문자열이라는 것은 <strong>문자의 배열</strong>로 볼 수 있다.<br>배열이므로 배열의 원소를 변경하는것과 같이 문자열도 변경할 수 있다고 생각할 것이다.</p>
 <p>하지만 자바스크립트에서는 각 문자를 변경할 수 없다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"test"</span>;</span><br><span class="line">a.replace(<span class="string">"e"</span>,<span class="string">"t"</span>); <span class="comment">//"ttst"</span></span><br><span class="line">a; <span class="comment">//"test"</span></span><br></pre></td></tr></table></figure></p>
+<p>그리고 원시타입은 <strong>값</strong>으로 비교된다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"test"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">"test"</span>;</span><br><span class="line"></span><br><span class="line">a == b; <span class="comment">//true</span></span><br><span class="line">a === b; <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>변수에 할당할때도 <strong>값</strong>을 집어넣는다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">b = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">b; <span class="comment">//2</span></span><br><span class="line">a; <span class="comment">//1</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>객체는 <strong>변경이 가능</strong>하다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123; <span class="attr">x</span> : <span class="number">1</span>&#125;;</span><br><span class="line">a.x = <span class="number">2</span>;</span><br><span class="line">a.x; <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">b[<span class="number">0</span>] = <span class="number">2</span>;</span><br><span class="line">b; <span class="comment">//[2,2,3]</span></span><br></pre></td></tr></table></figure></p>
+<p>그리고 객체는 <strong>참조</strong>로 비교딘다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> b = &#123;<span class="attr">x</span>:<span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line">a == b; <span class="comment">//false</span></span><br><span class="line">a === b; <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<p>객체는 <strong>참조타입(reference type)</strong>이라고 불린다.<br>객체는 <strong>참조</strong>를 할당한다.</p>
+<p>그래서 아래와 같은 현상이 발생한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">b[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">b; <span class="comment">//[1]</span></span><br><span class="line">a; <span class="comment">//[1]</span></span><br><span class="line"></span><br><span class="line">a === b; <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>난 <code>b</code>에 <code>a</code>를 복사하고, b의 값만 <code>1</code>로 변경하였는다. <code>a</code>도 같이 변경한 것을 볼 수 있다.<br><br><br><br></p>
+<h1 id="타입변환"><a href="#타입변환" class="headerlink" title="타입변환"></a>타입변환</h1><p>자바스크립트는 타입에 대해 매우 유연하다.<br>서로 다른타입끼리 어떠한 연산이 일어날 경우, 내부적으로 <strong>타입변환</strong>이 발생한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> + <span class="string">"test"</span> <span class="comment">//"10test" 숫자10의 문자열 변환</span></span><br><span class="line"><span class="string">"10"</span> * <span class="string">"2"</span> <span class="comment">//20 문자열10과 문자열2의 숫자 변환</span></span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>값</th>
+<th>String</th>
+<th>Number</th>
+<th>Boolean</th>
+<th>Object</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>undefined</td>
+<td>“undefined”</td>
+<td><strong>NaN</strong></td>
+<td>false</td>
+<td>TypeError</td>
+</tr>
+<tr>
+<td>null</td>
+<td>“null”</td>
+<td><strong>0</strong></td>
+<td>false</td>
+<td>TypeError</td>
+</tr>
+<tr>
+<td>true</td>
+<td>“true”</td>
+<td><strong>1</strong></td>
+<td></td>
+<td>new Boolean(true)</td>
+</tr>
+<tr>
+<td>false</td>
+<td>“false”</td>
+<td><strong>0</strong></td>
+<td></td>
+<td>new Boolean(false)</td>
+</tr>
+<tr>
+<td>“” (빈 문자열)</td>
+<td></td>
+<td><strong>0</strong></td>
+<td><strong>false</strong></td>
+<td>new String(“”)</td>
+</tr>
+<tr>
+<td>“1.2” (숫자 문자열)</td>
+<td></td>
+<td>1.2</td>
+<td>true</td>
+<td>new String(“1.2”)</td>
+</tr>
+<tr>
+<td>“one” (문자열)</td>
+<td></td>
+<td><strong>NaN</strong></td>
+<td>true</td>
+<td>new String(“one”)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>“0”</td>
+<td></td>
+<td><strong>false</strong></td>
+<td>new Number(0)</td>
+</tr>
+<tr>
+<td>-0</td>
+<td>“-0”</td>
+<td></td>
+<td><strong>false</strong></td>
+<td>new Number(-0)</td>
+</tr>
+<tr>
+<td>NaN</td>
+<td>“NaN”</td>
+<td></td>
+<td><strong>false</strong></td>
+<td>new Number(NaN)</td>
+</tr>
+<tr>
+<td>Infinity</td>
+<td>“Infinity”</td>
+<td></td>
+<td>true</td>
+<td>new Number(Infinity)</td>
+</tr>
+<tr>
+<td>-Infinity</td>
+<td>“-Infinity”</td>
+<td></td>
+<td>true</td>
+<td>new Number(-Infinity)</td>
+</tr>
+<tr>
+<td>1 (0이 아닌 유한한값)</td>
+<td>“1”</td>
+<td></td>
+<td>true</td>
+<td>new Number(1)</td>
+</tr>
+<tr>
+<td>{} (객체)</td>
+<td>-</td>
+<td>-</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>[] (배열)</td>
+<td>“”</td>
+<td><strong>0</strong></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>[9] (숫자인 배열원소)</td>
+<td>“9”</td>
+<td><strong>9</strong></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>[“a”] (문자열인 배열원소)</td>
+<td>join()</td>
+<td><strong>NaN</strong></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>function(){} (함수)</td>
+<td>-</td>
+<td><strong>NaN</strong></td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="변환과-동치"><a href="#변환과-동치" class="headerlink" title="- 변환과 동치"></a>- 변환과 동치</h2><p>자바스크립트는 값의 타입을 유연하게 변환시킬 수 있는데,<br>동치연산자 <code>==</code>도 같은 원리로 동작한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">//true</span></span><br><span class="line"><span class="string">"0"</span> == <span class="number">0</span> <span class="comment">//true</span></span><br><span class="line"><span class="number">0</span> == <span class="literal">false</span> <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p><code>==</code>연산자가 비교를 하기전에, 내부적으로 타입변환이 일어난다.<br>특이한것이 있는데, <code>undefined</code>의 경우 <code>false</code>로 변환은 일어난다.</p>
+<p>그러나, <code>undefined == false</code>는 아니다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> == <span class="literal">false</span> <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="암시적-변환"><a href="#암시적-변환" class="headerlink" title="- 암시적 변환"></a>- 암시적 변환</h2><p>자바스크립트는 특정한 연산자를 사용할때 암시적으로 변환이 일어난다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x + <span class="string">""</span> <span class="comment">// +연산자는 피연산자가 문자열일 경우 다른 피연산자를 문자열로 변환</span></span><br><span class="line">+x <span class="comment">// 단항 +연산자는 피연산자를 숫자로 변환</span></span><br><span class="line">!!x <span class="comment">// !연산자는 불리언으로 변환하고 부정연산</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="명시적-변환"><a href="#명시적-변환" class="headerlink" title="- 명시적 변환"></a>- 명시적 변환</h2><p>자바스크립트는 자동적으로 타입변환을 수행하지만 사용자가 원할때 <strong>명시적</strong>으로 변환을 할 수 있다.<br>명시적 변환을 할때 가장 간단한 방법은 <strong>래퍼 객체</strong>를 사용하는 것이다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="string">"3"</span>) <span class="comment">//3</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">false</span>) <span class="comment">//"false"</span></span><br><span class="line"><span class="built_in">Boolean</span>([]) <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>자바스크립트는 숫자를 문자로 변환하거나 문자를 숫자로 변환 때, 결과 값을 자세히 표현할 수 있게 메서드를 지원한다.<br><strong>Number</strong> 클래스의 <code>toString()</code>은 기수를 정하는 선택적 인자를 받는다.<br>인자가 없는경우 10진수로 표시된다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">17</span>;</span><br><span class="line"></span><br><span class="line">n.toString(<span class="number">2</span>); <span class="comment">//2진수 "10001"</span></span><br><span class="line">n.toString(<span class="number">8</span>); <span class="comment">//8진수 "21"</span></span><br><span class="line">n.toString(<span class="number">16</span>); <span class="comment">//16진수 "11"</span></span><br></pre></td></tr></table></figure></p>
+<p>그리고 소수점 이하의 자리수를 제어할때도 메서드를 지원한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">123456.789</span>;</span><br><span class="line"></span><br><span class="line">n.toFixed(<span class="number">0</span>); <span class="comment">//"123456"</span></span><br><span class="line">n.toFixed(<span class="number">1</span>); <span class="comment">//"123456.7"</span></span><br><span class="line">n.toFixed(<span class="number">4</span>); <span class="comment">//"123456.7890"</span></span><br><span class="line"></span><br><span class="line">n.toExponential(<span class="number">1</span>); <span class="comment">// "1.2e+5"</span></span><br><span class="line">n.toExponential(<span class="number">3</span>); <span class="comment">// "1.235e+5"</span></span><br><span class="line"></span><br><span class="line">n.toPrecision(<span class="number">4</span>); <span class="comment">//"1.235e+5"</span></span><br><span class="line">n.toPrecision(<span class="number">7</span>); <span class="comment">//"123456.8"</span></span><br></pre></td></tr></table></figure></p>
+<p><code>Number()</code> 객체는 명시적변환을 할때 숫자가 아닌 값은 <code>NaN</code>을 일으킨다,<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="string">"22"</span>); <span class="comment">//22</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"22t"</span>); <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure></p>
+<p>그럴경우 <code>parseInt()</code>와 <code>parseFloat()</code>을 이용할 수 있다.<br><code>parseInt()</code>는 정수만 변환할 수있지만,<br><code>parseFloat()</code>는 정수와 부동소수점 모두 변환할 수 있다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">"22"</span>); <span class="comment">//22</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">"22.4"</span>); <span class="comment">//22.4</span></span><br></pre></td></tr></table></figure></p>
+<p>뒤에 숫자가 아닌 값이 올 경우에는 제거후 숫자로 인식이 되지만,<br>앞에 숫자로 인식되지 않는 값이 오면 <code>NaN</code>을 반환한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">"t22"</span>); <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">"t22.4"</span>); <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure></p>
+<p>또한 <code>parseInt</code>와 <code>parseFloat</code>의 두번째 인자로 숫자 값을 전달하면, 두번째 인자를 <strong>기수</strong>로 첫번째 인자를 변환시킨다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">"11"</span>, <span class="number">2</span>); <span class="comment">//3 (11을 2진수로 인식하고 10진수로 변환)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"ff"</span>, <span class="number">16</span>); <span class="comment">//255 (ff를 16진수로 인식하고 10진수로 변환)</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"077"</span>, <span class="number">10</span>); <span class="comment">//77 (077을 10진수로 인식하고 10진수로 변환)</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="객체에서-원시타입으로-변환"><a href="#객체에서-원시타입으로-변환" class="headerlink" title="- 객체에서 원시타입으로 변환"></a>- 객체에서 원시타입으로 변환</h2><p>모든 객체에서 불리언으로 변환은 항상 <code>true</code>로 반환된다.<br>객체에서 문자열로 변환될때, 숫자로 변환될때는 <strong>변환될 객체의 메서드</strong>를 호출함으로 수행된다.</p>
+<p>모든 객체는 두 개의 타입변환 메서드 <code>toString()</code>과 <code>valueOf()</code>를 상속한다.<br><code>toString()</code>는 객체를 문자열로 표현한다.<br>그리고 각 클래스마다 toString()을 재정의해서 서로 다르게 표시한다. (그래도 결국 문자열로 표시한다.)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(&#123;<span class="attr">x</span>:<span class="number">1</span>, <span class="attr">y</span>:<span class="number">2</span>&#125;).toString(); <span class="comment">//"[object Object]"</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].toString(); <span class="comment">//"1,2,3"</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> x &#125;) <span class="comment">//"function (x)&#123; return x &#125;"</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2018.2</span><span class="number">.1</span>).toString(); <span class="comment">//"Thu Mar 01 2018 00:00:00 GMT+0900 (KST)"</span></span><br></pre></td></tr></table></figure></p>
+<p><code>valueOf()</code>는 본래 객체를 잘 표현하는 원시타입 값을 반환해야한다.</p>
+<p>그런데, 객체의 경우 결합된 값이다.<br>대부분 객체는 하나의 원시타입으로 표시할수 없기때문에 <code>valueOf()</code>는 객체 그 자신을 반환한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;).valueOf(); <span class="comment">//&#123;x:1&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><br><br>객체는 다음과 같은 절차로 <strong>문자열</strong>로 변환된다.</p>
+<ul>
+<li>객체가 <strong>toString()</strong> 메서드를 가지고 있는지 찾는다.<br>찾았다면 toString()을 호출한다.<br>원시타입 값을 반환한다.<br>이 값이 문자열 이면 그대로 출력하고, 아니면 값을 <strong>문자열</strong>로 변환하여 반환한다.</li>
+<li>toString()을 못찾았을 경우, <strong>valueOf()</strong> 메서드를 가지고 있는지 찾는다.<br>찾았다면 valueOf()를 호출한다.<br>원시타입 값을 반환한다.<br>이 값이 문자열 이면 그대로 출력하고, 아니면 값을 <strong>문자열</strong>로 변환하여 반환한다.</li>
+<li>두 메서드를 못찾았을 경우, <strong>TypeError</strong>를 반환한다.</li>
+</ul>
+<p><br><br>객체는 다음과 같은 절차로 <strong>숫자</strong>로 변환된다.</p>
+<ul>
+<li>객체가 <strong>valueOf()</strong> 메서드를 가지고 있는지 찾는다.<br>찾았다면 valueOf()을 호출한다.<br>원시타입 값을 반환한다.<br>이 값이 숫자라면 그대로 출력하고, 아니면 <strong>숫자</strong>로 변환하여 반환한ㄷ.</li>
+<li>valueOf()을 못찾았을 경우, <strong>toString()</strong> 메서드를 가지고 있는지 찾는다.<br>찾았다면 toString()를 호출한다.<br>이 값을 숫자로 변환하여 반환한다.</li>
+<li>이 외의 경우, <strong>TypeError</strong>를 반환한다.</li>
+</ul>
+<p>그렇다면 이제 빈 배열이 숫자로 변환시 0으로 변환되는지 알 수 있다.<br>배열은 기본적으로 <code>valueOf()</code>가 원시타입을 반환하지 않고 객체를 반환한다.</p>
+<p>그러면 <strong>객체에서 숫자로 변환</strong>에서 두번째 규칙을 따른다.<br><code>toString()</code>메서드를 호출하는데 빈 문자열 <code>&quot;&quot;</code>가 반환될 것이다.<br>이 빈 문자열은 다시 숫자로 변환되어 <code>0</code>이 나오게 된다.<br><br><br><br></p>
+<h1 id="변수-선언-declaration"><a href="#변수-선언-declaration" class="headerlink" title="변수 선언 declaration"></a>변수 선언 declaration</h1><p>자바스크립트에서 변수 선언은 <code>var</code> 키워드를 사용한다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br></pre></td></tr></table></figure></p>
+<p>하나의 키워드로 여러개의 변수 선언도 가능하다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a, b, c;</span><br></pre></td></tr></table></figure></p>
+<p>선언과 동시에 <strong>초기화</strong>도 가능하다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure></p>
+<p>만약, 초기화를 하지 않는다면, 변수에 값이 할당되기 전까지 <code>undefined</code>값을 갖는다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line">a; <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure></p>
+<p>자바스크립트에선 특이하게 엄격하게 타입구분이 없기때문에 다른언어와는 다른 현상을 보인다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">a = <span class="string">"test"</span>; <span class="comment">//ok!</span></span><br></pre></td></tr></table></figure></p>
+<p>만약 선언되지 않은 변수를 호출 할 경우 에러가 발생한다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g; <span class="comment">//Uncaught ReferenceError: g is not defined at &lt;anonymous&gt;:1:1</span></span><br></pre></td></tr></table></figure></p>
+<p><br><br><br></p>
+<h1 id="변수의-유효범위"><a href="#변수의-유효범위" class="headerlink" title="변수의 유효범위"></a>변수의 유효범위</h1><p>변수의 유효범위란 어떤 변수가 <strong>정의되어 있는 영역</strong>을 말한다.<br><strong>전역(global)</strong>과 <strong>지역(local)</strong>으로 나누어 진다.<br>전역변수는 말그대로 모든 전역에서 유효하다.<br>지역변수는 유효범위가 한정적이다.</p>
+<p>같은 이름의 지역변수와 지역변수가 선언되었을 경우, 함수 내부에서는 지역변수가 우선권을 갖는다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"global"</span>; <span class="comment">//전역변수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> a = <span class="string">"local"</span>; <span class="comment">//전역변수와 같은 이름의 지역변수</span></span><br><span class="line">   <span class="keyword">return</span> a; <span class="comment">//지역변수를 반환한다</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test(); <span class="comment">// "local"</span></span><br></pre></td></tr></table></figure></p>
+<p>전역변수에서는 <code>var</code>키워드를 안써도 전역변수로 선언이 되지만,<br><strong>지역변수는 반드시 <code>var</code>를 써야된다.</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">"global"</span>; <span class="comment">//전역변수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   a = <span class="string">"local"</span>; <span class="comment">//전역변수가 바뀌어 버린다</span></span><br><span class="line">   <span class="keyword">return</span> a; <span class="comment">//전역변수를 반환한다</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test(); <span class="comment">// "global"</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="함수-유효범위와-끌어올림-hoisting"><a href="#함수-유효범위와-끌어올림-hoisting" class="headerlink" title="- 함수 유효범위와 끌어올림 hoisting"></a>- 함수 유효범위와 끌어올림 hoisting</h2><p>다른 프로그래밍 언어에서 블록 안에 있는 코드는 자신만의 유효범위를 가지며,<br>블록 안에서 선언된 변수는 블록 밖에서 볼 수 없다.<br>이를 <strong>블록 유효범위 (block scope)</strong> 라고한다.</p>
+<p>자바스크립트는 블록 유효범위의 개념이 없다.</p>
+<p>대신에, <strong>함수 유효범위(function scope)</strong>를 사용한다.<br>어떤 함수 안에서 선언된 모든 변수는 그 함수 전체에 걸쳐 유효하다.<br>변수가 정의된 함수 안에서 보일 뿐 아니라, 그 함수 안에 중첩된 함수 안에서도 보인다.</p>
+<p>다음은 변수 i,j,k 모두 다른위치에 선언되지만 모두 같은 유효범위를 갖는다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> i = <span class="number">0</span>; <span class="comment">//함수 전체에 정의됨</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">typeof</span> x === <span class="string">"object"</span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> k = <span class="number">0</span>; k &lt; <span class="number">10</span>; k++) &#123;</span><br><span class="line">         <span class="built_in">console</span>.log(k);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(k); <span class="comment">//10 (for문에서만 정의되어있지만 여전히 유효하다)</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">console</span>.log(j); <span class="comment">//undefined (정의는 되어있지만, 초기화 되지않는다)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>이런 특징은 <strong>끌어올림(hoisting)</strong> 때문이다.<br>호이스팅은 모든 변수선언만 끌어올리고, 초기화 까지는 끌어올리지 않는다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(scope); <span class="comment">//"undefined"</span></span><br><span class="line">   <span class="keyword">var</span> scope = <span class="string">"local"</span>;</span><br><span class="line">   <span class="built_in">console</span>.log(scope); <span class="comment">//"local"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>맨 처음 <code>console.log(scope);</code>에서 <code>undefined</code>가 아닌 <code>global</code>을 예상할 것이다.</p>
+<p>그러나, 호이스팅의 원리로 인해 함수가 선언될때 두번째 줄에 있는 <code>var scope = &quot;local&quot;;</code>이 함수 가장위로 올라와 선언된다.<br>때문에 <code>undefined</code>가 나오는 것이다.<br><br></p>
+<h2 id="프로퍼티의-변수"><a href="#프로퍼티의-변수" class="headerlink" title="- 프로퍼티의 변수"></a>- 프로퍼티의 변수</h2><p>전역 변수로 선언한다는 것은, 곧 전역 객체의 프로퍼티를 정의하는 것이다.<br>변수를 선언시 <code>var</code>를 사용하면, 생성된 프로퍼티는 수정이 불가능하고 <code>delete</code>연산자로 제거가 불가능하다.</p>
+<p>그러나 선언하지 않고 값을 할당하면, 자바스크립트는 자동으로 전역변수를 만든다.<br>이 값은 수정이 가능하고 삭제도 가능하다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>; <span class="comment">//삭제 불가</span></span><br><span class="line">b = <span class="number">2</span>; <span class="comment">//삭제 가능</span></span><br><span class="line"><span class="keyword">this</span>.c = <span class="number">3</span>; <span class="comment">//삭제 가능</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> a; <span class="comment">//fail!</span></span><br><span class="line"><span class="keyword">delete</span> b; <span class="comment">//success;</span></span><br><span class="line"><span class="keyword">delete</span> c; <span class="comment">//success;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>this</code>키워드는 전역 객체를 참조할 수 있다.</p>
+<p>하지만, 지역변수를 참조하는 키워드는 없다.</p>
+<p><br></p>
+<h2 id="유효범위-체인-scope-chain"><a href="#유효범위-체인-scope-chain" class="headerlink" title="- 유효범위 체인 scope chain"></a>- 유효범위 체인 scope chain</h2><p>자바스크립트의 모든 코드 무더기는 <strong>유효범위 체인(scope chain)</strong>을 가지고 있다.<br>유효범위 체인은 범위 안에 있는 변수를 정의하는 객체의 체인, <strong>리스트</strong>이다.</p>
+<p>자바스크립트가 변수 x의 값을 얻을때, 처음 체인에서 x를 찾는다.<br>없는경우 체인에 있는 다음 객체에서 x를 찾는다.<br>이런식으로 x를 찾지 못할 경우 <strong>ReferenceError</strong>가 발생하게 된다.</p>
 </div><div class="article__tags"><a class="article__tags__item" href="/tags/Javascript/">Javascript</a></div><div class="article__author" itemscope itemprop="author" itemtype="https://schema.org/Person"><img class="article__author__image" src="/images/profile.jpeg" alt="circleGiven"><a class="article__author__link" title="About circleGiven" rel="author">circleGiven</a><p class="article__author__desc">아직 배울게 너무 많은 '초보 개발자'</p><div class="article__author__socials"><a class="article__author__socials__item" href="/atom.xml" title="rss" target="_blank"><i class="fa fa-rss"></i></a></div><meta itemprop="name" content="circleGiven"></div><div class="sharer" id="sharer"><div class="sharer-inner"><div class="sharer__right"><button class="sharer__item" id="sharer-facebook"><i class="fa fa-facebook-official"></i></button><button class="sharer__item" id="sharer-twitter"><i class="fa fa-twitter"></i></button><button class="sharer__item" id="sharer-pinterest"><i class="fa fa-pinterest"></i></button><button class="sharer__item" id="sharer-pocket"><i class="fa fa-get-pocket"></i></button></div></div></div><!-- Disqus Code--><div id="disqus_thread"></div><script>(function() {
   var d = document, s = d.createElement('script');
   s.src = '//circleGiven.disqus.com/embed.js';
   s.setAttribute('data-timestamp', +new Date());
   (d.head || d.body).appendChild(s);
-})();</script><noscript>Enable JavaScript to see comments.</noscript><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-01-27T07:03:55.537Z"><meta itemprop="articleBody" content="숫자 Number자바스크립트는 다른언어와 달리 정수와 실수를 구분하지 않는다.자바스크립트는 모든 숫자를 실수로 표현하는데 IEEE 754 표준에서 정의한 64비트 실수 형태로 표현한다.하지만, 배열 인덱싱이나 비트 연산같은 특정연산은 32비트 정수로 수행한다.그리고 숫자는 표현할 수 있는 특정 범위를 갖는다. (Number 객체를 이용하면 알 수..."><meta itemprop="url" content="http://yoursite.com/2018/01/08/javascript-type/"><meta itemprop="mainEntityOfPage" content="http://yoursite.com/2018/01/08/javascript-type/"><div itemscope itemtype="https://schema.org/Organization" itemprop="publisher"><meta itemprop="name" content="Dev diary"><div itemscope itemprop="logo" itemtype="https://schema.org/ImageObject"><meta itemprop="url" content="http://yoursite.com/images/favicon.png"></div></div><div itemscope itemtype="https://schema.org/ImageObject" itemprop="image"><meta itemprop="contentUrl" content="http://yoursite.com/images/js.svg"><meta itemprop="url" content="http://yoursite.com/images/js.svg"><meta itemprop="width"><meta itemprop="height"></div></article><section class="related-posts"><h3>Related posts</h3><div class="related-posts__item__wrapper"><a class="related-posts__item" href="/2018/01/09/null-undefined/"><div class="related-posts__item__background" style="background-image:url('/images/js.svg');"></div><div class="related-posts__item__overlay"></div><span class="related-posts__item__title">Javascript&gt;&gt; null vs undefined</span></a></div><div class="related-posts__item__wrapper"><a class="related-posts__item" href="/2018/01/09/escape-text/"><div class="related-posts__item__background" style="background-image:url('/images/js.svg');"></div><div class="related-posts__item__overlay"></div><span class="related-posts__item__title">Javascript&gt;&gt; 문자열 내에서 줄바꿈 사용하기</span></a></div><div class="related-posts__item__wrapper"><a class="related-posts__item" href="/2018/01/11/javascript-guide/"><div class="related-posts__item__background" style="background-image:url('/images/js.svg');"></div><div class="related-posts__item__overlay"></div><span class="related-posts__item__title">Javascript&gt;&gt; 자바스크립트 가이드</span></a></div></section></div></div></div><footer id="footer"><div class="widgets"><div class="widgets-inner"><!-- Jade doesn't support dynamic inclusion with `each`.--><!-- So, I just hard coded the file names that will be included.--><div class="widgets__item"><h3 class="widgets__item__heading">Recent posts</h3><ul class="recent-posts"><li class="recent-posts__item"><a href="/2018/01/21/typescript-interface/">Typescript&gt;&gt; Interface</a></li><li class="recent-posts__item"><a href="/2018/01/19/class-abstract-interface/">class 와 abstract 그리고 interface 이야기</a></li><li class="recent-posts__item"><a href="/2018/01/18/typescript-variable/">Typescript&gt;&gt; 변수 선언에 대해</a></li><li class="recent-posts__item"><a href="/2018/01/17/typescript-type/">Typescript&gt;&gt; Types</a></li><li class="recent-posts__item"><a href="/2018/01/12/program-structure-procedure/">컴퓨터 프로그램의 구조와 해석</a></li></ul></div><div class="widgets__item"><h3 class="widgets__item__heading">Archives</h3><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">11</span></li></ul></div><div class="widgets__item"><h3 class="widgets__item__heading">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/Speech/">Speech</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev/">Dev</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Dev/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev/Javascript/">Javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev/Typescript/">Typescript</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/SICP/">SICP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Story/">Story</a><span class="category-list-count">1</span></li></ul></li></ul></div></div></div><p class="copyright"><small>© 2018 circleGiven<br>Powered by <a href="https://hexo.io" rel="external" target="_blank">Hexo</a>, Theme by <a href="https://github.com/hyunseob" rel="external" target="_blank">HyunSeob</a></small></p></footer><script src="/js/sharer.min.js"></script></body></html>
+})();</script><noscript>Enable JavaScript to see comments.</noscript><!-- Meta Tags for Structured Data--><meta itemprop="dateModified" content="2018-01-27T12:08:05.430Z"><meta itemprop="articleBody" content="숫자 Number자바스크립트는 다른언어와 달리 정수와 실수를 구분하지 않는다.자바스크립트는 모든 숫자를 실수로 표현하는데 IEEE 754 표준에서 정의한 64비트 실수 형태로 표현한다.하지만, 배열 인덱싱이나 비트 연산같은 특정연산은 32비트 정수로 수행한다.그리고 숫자는 표현할 수 있는 특정 범위를 갖는다. (Number 객체를 이용하면 알 수..."><meta itemprop="url" content="http://yoursite.com/2018/01/08/javascript-type/"><meta itemprop="mainEntityOfPage" content="http://yoursite.com/2018/01/08/javascript-type/"><div itemscope itemtype="https://schema.org/Organization" itemprop="publisher"><meta itemprop="name" content="Dev diary"><div itemscope itemprop="logo" itemtype="https://schema.org/ImageObject"><meta itemprop="url" content="http://yoursite.com/images/favicon.png"></div></div><div itemscope itemtype="https://schema.org/ImageObject" itemprop="image"><meta itemprop="contentUrl" content="http://yoursite.com/images/js.svg"><meta itemprop="url" content="http://yoursite.com/images/js.svg"><meta itemprop="width"><meta itemprop="height"></div></article><section class="related-posts"><h3>Related posts</h3><div class="related-posts__item__wrapper"><a class="related-posts__item" href="/2018/01/09/null-undefined/"><div class="related-posts__item__background" style="background-image:url('/images/js.svg');"></div><div class="related-posts__item__overlay"></div><span class="related-posts__item__title">Javascript&gt;&gt; null vs undefined</span></a></div><div class="related-posts__item__wrapper"><a class="related-posts__item" href="/2018/01/11/javascript-guide/"><div class="related-posts__item__background" style="background-image:url('/images/js.svg');"></div><div class="related-posts__item__overlay"></div><span class="related-posts__item__title">Javascript&gt;&gt; 자바스크립트 가이드</span></a></div><div class="related-posts__item__wrapper"><a class="related-posts__item" href="/2018/01/11/git-description/"><div class="related-posts__item__background" style="background-image:url('/images/git-icon.svg');"></div><div class="related-posts__item__overlay"></div><span class="related-posts__item__title">Git에 대해...</span></a></div></section></div></div></div><footer id="footer"><div class="widgets"><div class="widgets-inner"><!-- Jade doesn't support dynamic inclusion with `each`.--><!-- So, I just hard coded the file names that will be included.--><div class="widgets__item"><h3 class="widgets__item__heading">Recent posts</h3><ul class="recent-posts"><li class="recent-posts__item"><a href="/2018/01/21/typescript-interface/">Typescript&gt;&gt; Interface</a></li><li class="recent-posts__item"><a href="/2018/01/19/class-abstract-interface/">class 와 abstract 그리고 interface 이야기</a></li><li class="recent-posts__item"><a href="/2018/01/18/typescript-variable/">Typescript&gt;&gt; 변수 선언에 대해</a></li><li class="recent-posts__item"><a href="/2018/01/17/typescript-type/">Typescript&gt;&gt; Types</a></li><li class="recent-posts__item"><a href="/2018/01/12/program-structure-procedure/">컴퓨터 프로그램의 구조와 해석</a></li></ul></div><div class="widgets__item"><h3 class="widgets__item__heading">Archives</h3><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">10</span></li></ul></div><div class="widgets__item"><h3 class="widgets__item__heading">Categories</h3><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/Speech/">Speech</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev/">Dev</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Dev/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev/Javascript/">Javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev/Typescript/">Typescript</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/SICP/">SICP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Story/">Story</a><span class="category-list-count">1</span></li></ul></li></ul></div></div></div><p class="copyright"><small>© 2018 circleGiven<br>Powered by <a href="https://hexo.io" rel="external" target="_blank">Hexo</a>, Theme by <a href="https://github.com/hyunseob" rel="external" target="_blank">HyunSeob</a></small></p></footer><script src="/js/sharer.min.js"></script></body></html>
