@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-03T08:18:46.167Z</updated>
+  <updated>2018-10-12T13:38:42.980Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>프로그래머, 자신의 강점을 유지보수하라</title>
+    <link href="http://yoursite.com/2018/10/12/book-passionate-part5/"/>
+    <id>http://yoursite.com/2018/10/12/book-passionate-part5/</id>
+    <published>2018-10-12T12:21:27.000Z</published>
+    <updated>2018-10-12T13:38:42.980Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;img src=&quot;/images/passionate.png&quot;/&gt;&lt;blockquote&gt;
+&lt;p&gt;이것은 &lt;strong&gt;‘프로그래머, 열정을 말하다’&lt;/strong&gt;를 읽고 간추린 글이다.&lt;br&gt;단지 각 단락마다 기억해야할 말들만 담았을 뿐이니, 저자가
+        
+      
+    
+    </summary>
+    
+      <category term="Book" scheme="http://yoursite.com/categories/Book/"/>
+    
+      <category term="The Passionate Programmer" scheme="http://yoursite.com/categories/Book/The-Passionate-Programmer/"/>
+    
+    
+      <category term="Book" scheme="http://yoursite.com/tags/Book/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring | 제어의 역행 IoC(Inversion of Control) 구현하기</title>
@@ -96,11 +125,11 @@
   </entry>
   
   <entry>
-    <title>프로그래머, 마케팅</title>
+    <title>프로그래머, 마케팅은 높으신 분들만 하는 게 아니다</title>
     <link href="http://yoursite.com/2018/09/27/book-passionate-part4/"/>
     <id>http://yoursite.com/2018/09/27/book-passionate-part4/</id>
     <published>2018-09-27T07:28:16.000Z</published>
-    <updated>2018-10-02T08:36:05.392Z</updated>
+    <updated>2018-10-12T12:24:39.399Z</updated>
     
     <summary type="html">
     
@@ -528,34 +557,6 @@
         
         
           &lt;img src=&quot;/images/javascript.png&quot;/&gt;&lt;h1 id=&quot;자바스크립트의-좋은-점&quot;&gt;&lt;a href=&quot;#자바스크립트의-좋은-점&quot; class=&quot;headerlink&quot; title=&quot;자바스크립트의 좋은 점&quot;&gt;&lt;/a&gt;자바스크립트의 좋은
-        
-      
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
-    
-      <category term="Basic" scheme="http://yoursite.com/categories/Javascript/Basic/"/>
-    
-    
-      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javascript | 객체</title>
-    <link href="http://yoursite.com/2018/02/16/javascript-object/"/>
-    <id>http://yoursite.com/2018/02/16/javascript-object/</id>
-    <published>2018-02-16T01:07:20.000Z</published>
-    <updated>2018-03-23T14:18:47.409Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;img src=&quot;/images/javascript.png&quot;/&gt;&lt;p&gt;자바스크립트의 기본 데이터 타입은 &lt;strong&gt;객체&lt;/strong&gt;다.&lt;br&gt;객체는 일종의 &lt;strong&gt;복합체&lt;/strong&gt;로, 여러 값(원시 타입의 값 또는 다른 객체)들을
         
       
     
