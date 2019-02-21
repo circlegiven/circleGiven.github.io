@@ -8,7 +8,7 @@ $padding-title-header
 .post
     position relative
     top rem(500px)
-    background #fff
+    background background
 .post-content
     padding rem(40px) 0
     img
@@ -30,19 +30,15 @@ $padding-title-header
         ul 
         margin-bottom 0
     p,li
-        color texts
+        color #fff
         code
             color main
             word-wrap break-word
     a
         color main
-        border-bottom 2px dashed main
         mainFont(300)
         text-decoration none
         transition all .3s
-        &:hover
-            background main
-            color #fff
     .externalLink:after
         display inline-block
         content ''
@@ -129,7 +125,7 @@ $padding-title-header
         font-size rem(28px)
         margin-top rem(20px)
         padding 0 rem(20px)
-
+// series
 .post-list
     list-style none
     margin rem(25px) auto
@@ -137,7 +133,7 @@ $padding-title-header
         padding 0 rem(20px)
     a
         display block
-        border-bottom 1px solid darken(lightGray,10%)
+        border-bottom 1px solid darken(main,10%)
         padding rem(10px) 0
         text-decoration none
         transition all .5s

@@ -1,5 +1,5 @@
 .author
-    background lightGray
+    background card
     display table
     width 100%
     padding rem(40px) 0
@@ -32,16 +32,17 @@
         a
             mainFont()
             text-decoration none
-            color black
+            color #ffffff
             font-size rem(30px)
             &:hover
-                color main
+                color link
             +above(cut)
                 font-size rem(45px)
     .desc
         mainFont(300)
         margin rem(10px)
         font-size rem(16px)
+        color main
         +above(cut)
             font-size rem(20px)
     .email,

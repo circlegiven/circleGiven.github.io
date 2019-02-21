@@ -10,7 +10,7 @@ $bg
 		padding rem(140px) 0 rem(66px)
 
 .bar-header
-	background sec
+	background card
 	padding rem(10px) rem(20px)
 	box-shadow 0 -3px 9px #000
 	position fixed
@@ -25,9 +25,9 @@ $bg
 		font-size rem(28px)
 		&:after
 			transition all .4s
-			content '</> '
+			content '${} '
 			+above(cut)
-				content '${circleGiven}'
+				content '${} circleGiven'
 
 // Header Post
 .header-post
@@ -42,7 +42,7 @@ $bg
 		display table
 		padding 20px
 		a
-			border 2px solid sec
+			border 2px solid #fff
 			border-radius 20px
 			padding 0 10px
 			+above(cut)
@@ -53,7 +53,7 @@ $bg
 		font-size rem(16px)
 	h1
 		font-size rem(30px)
-		margin 0 0 30px    
+		margin 0 0 30px
 		text-shadow 3px 3px darken(main, 20%)
 		+above(cut)
 			font-size rem(60px)
@@ -61,10 +61,10 @@ $bg
 		mainFont(300)
 		font-size rem(20px)
 	h1,.subtitle, .date
-		color sec
+		color main
 		text-align center
 	a,p
-		color sec
+		color main
 		text-decoration none
 		mainFont(300)
 		font-size rem(18px)

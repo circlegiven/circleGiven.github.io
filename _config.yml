@@ -1,19 +1,19 @@
-# Site settings
+# 사이트 설정
 title: circlegiven
 description: LAB
 # 프로젝트 별 페이지 만들때 사용
 baseurl: ""
 # 내 URL
-url: "https://circlegiven.github.io"
+# url: "https://circlegiven.github.io"
+url: "http://localhost:3000"
 
 # User settings
 username: Lorem Ipsum
 user_description: Anon Developer at Lorem Ipsum Dolor
-email: anon@anon.com
-twitter_username: lorem_ipsum
-github_username:  lorem_ipsum
-gplus_username:  lorem_ipsum
-disqus_username: lorem_ipsum
+email: circlegiven@gmail.com
+github_username: circlegiven
+gplus_username:  circlegiven
+disqus_username: circlegiven
 
 # Build settings
 markdown: kramdown
