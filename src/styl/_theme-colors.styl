@@ -46,11 +46,14 @@ for theme, category-color in themes
         // post 내부 header
         .bar-header
             .logo a
-                color texts
+                color title
         // post 내부 profile
         .author .email,
         .author .github
-            color header-text
+            color main
+            a
+            &:hover
+                color link
         // post 내부 share 부분
         .share a
             &:hover svg
@@ -63,7 +66,7 @@ for theme, category-color in themes
                         background-color category-color
         // post 내부 icon
         .icon-menu
-            fill header-text
+            fill title
         // card body
         .box-body
             h2
