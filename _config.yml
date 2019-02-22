@@ -1,5 +1,5 @@
 # 사이트 설정
-title: circlegiven
+title: circleGiven's LAB
 description: LAB
 # 프로젝트 별 페이지 만들때 사용
 baseurl: ""
@@ -8,10 +8,10 @@ baseurl: ""
 url: "http://localhost:3000"
 
 # User settings
-username: Lorem Ipsum
-user_description: Anon Developer at Lorem Ipsum Dolor
+username: circleGiven
+user_description: Junior developer
 email: circlegiven@gmail.com
-github_username: circlegiven
+github_username: circleGiven
 gplus_username:  circlegiven
 disqus_username: circlegiven
 
