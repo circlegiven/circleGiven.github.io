@@ -4,7 +4,7 @@ description: 놀 새로워, 배우는건 짜릿해
 # 프로젝트 별 페이지 만들때 사용
 baseurl: ""
 # 내 URL
-url: "https://circlegiven.github.io/"
+url: "https://circleGiven.github.io/"
 # dev
 #url: "http://localhost:3000"
 
