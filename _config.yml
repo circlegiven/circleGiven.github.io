@@ -43,6 +43,3 @@ links:
 
 # exclude my node related stuff
 exclude: ['package.json', 'src', 'node_modules']
-
-# 테마 사용할 repository link
-remote_theme : willianjusten/cards-jekyll-template
