@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>circleGiven's LAB</title>
+    <description>놀 새로워, 배우는건 짜릿해</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 24 Feb 2019 01:07:15 +0900</pubDate>
+    <lastBuildDate>Sun, 24 Feb 2019 01:07:15 +0900</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>유용한 every 와 some 함수</title>
+        <description>&lt;h1 id=&quot;introdution&quot;&gt;Introdution&lt;/h1&gt; &lt;p&gt;보통 웹에서 api통신을 할 때, JSON형태의 배열을 많이 받게된다.&lt;br /&gt; 받은 배열을 가지고 &lt;strong&gt;특정 조건에 맞는 데이터가 있는지 없는지 확인&lt;/strong&gt;을 할 때 자주 쓰이는 함수가 &lt;code class=&quot;highlighter-rouge&quot;&gt;some&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;every&lt;/code&gt;가 있다.&lt;/p&gt; &lt;p&gt;가령 아래의 형태로 데이터를 받았다고 하자.&lt;/p&gt; &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// data object list&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fields&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10038414&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;alias&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;LONG&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;logicalType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;INTEGER&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MEASURE&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;aggrType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;NONE&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span...</description>
+        <pubDate>Fri, 22 Feb 2019 16:32:23 +0900</pubDate>
+        <link>http://localhost:4000/post-js-every-some-func/</link>
+        <guid isPermaLink="true">http://localhost:4000/post-js-every-some-func/</guid>
+        
+        <category>javascript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>How to Use</title>
+        <description>&lt;h2 id=&quot;cards-jekyll-template---demo&quot;&gt;Cards Jekyll Template - &lt;a href=&quot;http://willianjusten.com.br/cards-jekyll-template&quot;&gt;Demo&lt;/a&gt;&lt;/h2&gt; &lt;p&gt;This is a simple and minimalist template for Jekyll designed for developers that want to write blog posts but don’t want to care about frontend stuff.&lt;/p&gt; &lt;p&gt;The Theme features:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Gulp&lt;/li&gt; &lt;li&gt;Stylus (Jeet, Rupture, Kouto Swiss)&lt;/li&gt; &lt;li&gt;Live Search&lt;/li&gt; &lt;li&gt;Offcanvas Menu&lt;/li&gt; &lt;li&gt;SVG icons&lt;/li&gt; &lt;li&gt;Very very small and fast!&lt;/li&gt; &lt;li&gt;Shell Script to create posts&lt;/li&gt; &lt;li&gt;Tags page&lt;/li&gt; &lt;li&gt;Series page&lt;/li&gt; &lt;li&gt;About Me page&lt;/li&gt; &lt;li&gt;Feed RSS&lt;/li&gt; &lt;li&gt;Sitemap.xml&lt;/li&gt; &lt;li&gt;Color Customization&lt;/li&gt; &lt;li&gt;Info Customization&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&quot;basic-setup&quot;&gt;Basic Setup&lt;/h2&gt; &lt;ol&gt; &lt;li&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Install Jekyll&lt;/a&gt;&lt;/li&gt; &lt;li&gt;Fork the &lt;a href=&quot;https://github.com/willianjusten/will-jekyll-template/fork&quot;&gt;Will Jekyll Template&lt;/a&gt;&lt;/li&gt; &lt;li&gt;Clone the repo you just forked.&lt;/li&gt; &lt;li&gt;Edit &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; to personalize your site.&lt;/li&gt;...</description>
+        <pubDate>Mon, 09 May 2016 05:35:48 +0900</pubDate>
+        <link>http://localhost:4000/how-to-use/</link>
+        <guid isPermaLink="true">http://localhost:4000/how-to-use/</guid>
+        
+        <category>misc</category>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code class=&quot;highlighter-rouge&quot;&gt;-w&lt;/code&gt; switch) to see your changes! To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt; &lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt; &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most...</description>
+        <pubDate>Mon, 09 May 2016 05:34:26 +0900</pubDate>
+        <link>http://localhost:4000/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://localhost:4000/welcome-to-jekyll/</guid>
+        
+        <category>jekyll</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Analisando seu código JS com um linter</title>
+        <description>&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt; &lt;p&gt;Faaaala pessoal, fazia muito tempo que eu não escrevia e confesso que isso já estava me agoniando. Então resolvi voltar a &lt;s&gt;falar besteiras&lt;/s&gt; escrever!!&lt;/p&gt; &lt;p&gt;Como não poderia deixar de ser, estou escrevendo ouvindo música. A playlist de hoje é &lt;a href=&quot;https://open.spotify.com/user/spotifybrazilian/playlist/0nUucSaL2BGl2VZlbY5TwR&quot;&gt;Brains&lt;/a&gt;, uma playlist que está sendo montada lá na &lt;a href=&quot;http://www.ccxp.com.br/&quot;&gt;CCXP&lt;/a&gt;, muita música maneira! Bota para tocar e vai lendo =D&lt;/p&gt; &lt;h2 id=&quot;qualidade-de-código&quot;&gt;Qualidade de Código&lt;/h2&gt; &lt;p&gt;Provavelmente você já passou horas escrevendo seu código lindo e aí, do nada, ele parou de funcionar. Então você ficou mais perdido que o John Travolta no Discurso da Dilma.&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/FWXpxEbWcOapq/giphy.gif&quot; alt=&quot;John...</description>
+        <pubDate>Sat, 05 Dec 2015 07:43:23 +0900</pubDate>
+        <link>http://localhost:4000/analisando-seu-codigo-js-com-linter/</link>
+        <guid isPermaLink="true">http://localhost:4000/analisando-seu-codigo-js-com-linter/</guid>
+        
+        <category>js</category>
+        
+        <category>linter</category>
+        
+        <category>tutorial</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Social Meta Tags</title>
+        <description>&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt; &lt;p&gt;Estou aqui de novo para mais uma &lt;strong&gt;#dicarapida&lt;/strong&gt; sobre um assunto que é bastante importante, mas muita gente esquece ou não faz de forma correta, que são as Meta Tags Sociais.&lt;/p&gt; &lt;p&gt;Hoje em dia, as redes sociais são fundamentais para que a gente consiga alcançar um maior número de pessoas. Antes isso ficava mais a cargo das pesquisas orgânicas, ads e outros modelos de divulgação (email marketing, spots de rádio, tv, etc).&lt;/p&gt; &lt;p&gt;No meu blog, muito do acesso é dado pelas redes sociais, sendo o facebook o maior propagador, acho que é porque sigo os passos do &lt;a...</description>
+        <pubDate>Tue, 10 Feb 2015 04:33:48 +0900</pubDate>
+        <link>http://localhost:4000/social-meta-tags/</link>
+        <guid isPermaLink="true">http://localhost:4000/social-meta-tags/</guid>
+        
+        <category>social</category>
+        
+        <category>seo</category>
+        
+        <category>tutorial</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Dica rápida #1</title>
+        <description>&lt;p&gt;Já que estou participando da campanha do &lt;a href=&quot;http://blog.da2k.com.br/&quot;&gt;Fernando Daciuk&lt;/a&gt; que é o &lt;strong&gt;#1postperday&lt;/strong&gt;, resolvi criar uma outra hashtag, que será a &lt;strong&gt;#dicarapida&lt;/strong&gt;. Como o próprio nome diz, serão dicas rápidas, mas que as vezes a gente não faz ou esquece ou ninguém falou por ser “bobo”.&lt;/p&gt; &lt;p&gt;A minha ideia também será postar coisas em um nível também iniciante, assim ajuda uma galera nova, que está começando agora.&lt;/p&gt; &lt;h2 id=&quot;favicons&quot;&gt;Favicons&lt;/h2&gt; &lt;p&gt;&lt;img src=&quot;/assets/img/dica-rapida-1/favicons.png&quot; alt=&quot;Favicons&quot; /&gt;&lt;/p&gt; &lt;p&gt;Pequenos e bastante simples, mas que já ajudam a identificar um site sem necessidade de mais nenhuma informação. Aposto que você sabe todos os sites que...</description>
+        <pubDate>Thu, 08 Jan 2015 06:31:05 +0900</pubDate>
+        <link>http://localhost:4000/dica-rapida-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/dica-rapida-1/</guid>
+        
+        <category>dicarapida</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
