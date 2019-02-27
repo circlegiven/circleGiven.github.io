@@ -7,7 +7,7 @@ main-class: 'algorithm'
     <h1 class="title-category">Algorithm</h1>
     <div id="grid" class="row flex-grid">
         {% for post in site.posts %}
-        {% if post.main-class == 'js' %}
+        {% if post.main-class == 'algorithm' %}
         <article class="box-item post-{{post.main-class}}" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
             <span class="ribbon"><span>{{post.main-class}}</span></span>
             <div class="box-body">
