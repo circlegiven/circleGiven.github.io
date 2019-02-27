@@ -1,7 +1,7 @@
 {
   "name": "cardsjekyll",
   "version": "1.0.0",
-  "description": "A simple template for Jekyll Blogs.",
+  "description": "circlegiven's LAB",
   "main": "gulpfile.js",
   "scripts": {
     "test": "test"
@@ -9,13 +9,17 @@
   "keywords": [
     "frontend",
     "blog",
-    "css",
-    "stylus",
     "gulp",
     "jekyll",
-    "js"
+    "dev",
+    "js",
+    "ts",
+    "javascript",
+    "typescript",
+    "angular",
+    "react",
   ],
-  "author": "Willian Justen de Vasconcellos",
+  "author": "circleGiven",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer-stylus": "^0.4.0",
