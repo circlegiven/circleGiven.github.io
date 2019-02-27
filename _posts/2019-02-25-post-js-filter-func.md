@@ -63,6 +63,10 @@ array.filter(function(currentValue, index, arr), thisArg)
 
 <br/>
 ### > example
+```
+// fields 배열에서 role이 DIMENSION인 object들의 목록
+fields.filter(field => 'DIMENSION' === field.role);
+```
 
 <br/>
 ### > 주의사항
