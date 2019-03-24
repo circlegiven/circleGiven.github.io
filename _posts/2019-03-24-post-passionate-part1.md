@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: "프로그래머, 당신의 시장을 선택하라"
 date: 2019-03-24 13:37:47
-description: "Book"
+description: "프로그래머, 열정을 말하다"
 main-class: 'book'
 tags:
 - "book"
