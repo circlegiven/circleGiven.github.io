@@ -15,7 +15,7 @@ tags:
 <br>
 
 # 상수 constant
-고정된 값
+고정된 값, 변하지 않는 값
 ![constant](/assets/img/math/constant.png)
 <br>
 
@@ -71,6 +71,12 @@ tags:
 ![intercept](/assets/img/math/intercept.png)
 <br>
 
+# n차식
+n차식은 항상 최고차항의 계수가 0이 아니라는 것이 조건에 붙는다.
+그 이유는 n차식이라고 정의를 내렸기 때문에 최고차항의 계수가 0이 되버리면
+최고차항이 아니게 되므로 n차식이 아니게 된다.
+<br>
+
 # 함수 function
 어떤 입력값 x에 따라 하나의 출력값 y가 결정된다면 y는 x의 함수이다.<br>
 이 관계를
@@ -83,7 +89,29 @@ tags:
 # 제곱근 square root
 제곱을 했을 때 어떤 수(y)가 되는 값 (x)이 있다면, x를 y의 **제곱근**이라고 한다.
 ![square_root](/assets/img/math/square_root.png)
+이 때, y가 양수라면 x는 항상 2개 이다.
+
 제곱근을 표현할 때 숫자가 아닌 기호를 사용하는데 이 기호를 **근호**라고 부른다.
 ![근호](/assets/img/math/근호.png)
 제곱근은 아래와 같은 식을 성립한다.
 ![example](/assets/img/math/example_square_root.png)
+<br>
+
+# 거듭제곱
+x를 a번 곱한 것을
+**x의 a제곱, x의 a승** 이라 부른다.
+![거듭제곱](/assets/img/math/거듭제곱.png)
+이 때, x를 **밑(base)**, a를 **지수(exponent, index)**라고 한다.
+지수는 반드시 정수일 필요는 없고, 분수나 음수가 될 수 있다.
+<br>
+
+# 거듭제곱근
+a제곱 하면 x가 되는 수, a승 하면 x가 되는 수를
+**x의 a 제곱근**이라 부른다.
+![거듭제곱근](/assets/img/math/거듭제곱근.png)
+2제곱은 평방근이라고도 하며, 2를 생략할 수 있다.
+![평방근](/assets/img/math/평방근.png)
+
+거듭제곱과 거듭제곱근은 아래와 같은 식을 성립한다.
+![example](/assets/img/math/example_거듭제곱_거듭제곱근.png)
+<br>
