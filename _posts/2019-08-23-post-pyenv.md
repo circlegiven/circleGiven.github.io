@@ -15,6 +15,8 @@ tags:
 그럴때마다 일일이 환경변수를 바꿔서 버젼을 달리하는게 매우 귀찮다.<br>
 그래서 임의의 환경을 따로 만들어 그 환경만 바꿔주는게 바로 `pyenv`이다.<br>
 
+<br><br>
+
 # Manual
 
 ## > Install
@@ -23,6 +25,16 @@ tags:
 ```shell
 brew install pyenv
 ```
+<br>
+설치가 끝난 후, 사용하고 있는 **profile**에 아래를 추가한다.
+```shell
+# pyenv setting
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+```
+
+<br>
 
 ## > 현재 설치된 pyenv의 버젼
 ```shell
@@ -34,21 +46,65 @@ pyenv --version
 <br>
 
 ## > 현재 설치된 pyenv 환경 목록
+`*` 표시는 현재 선택된 환경을 의미한다.
 ```shell
 pyenv versions
 
 > * system (set by /Users/choewonjun/.pyenv/version)
 > 3.5.2
 ```
-여기서 * 표시는 현재 선택된 환경을 의미한다.<br>
+
+<br>
+
+## > 현재 사용되는 버젼
+```shell
+pyenv version
+
+> system (set by /Users/choewonjun/.pyenv/version)
+```
+
+<br>
+
+## > 현재 전역 python 버젼 설정
+```shell
+pyenv global 3.5.2
+
+> * 3.5.2 (set by /Users/choewonjun/.pyenv/version)
+```
+
+<br>
+
+## > 현재 shell 의 python 버젼 설정
+현재 shell을 벗어나게 되면 초기화 된다 (터미널 창을 닫으면)
+```shell
+pyenv shell 3.5.2
+
+> 3.5.2 (set by PYENV_VERSION environment variable)
+```
+
+<br>
+
+## > 현재 디렉토리에서 python 버젼 설정 
+명령어 수행시 해당 디렉토리에서 `.python-version`이라는 파일이 생성된다.<br>
+`pyenv shell [version]` 명령어와는 달리 디렉토리를 벗어나도 초기화되지 않는다.<br>
+즉, 해당 디렉토리에 접근하면 자동으로 지정된 환경이 설정된다. 
+```shell
+pyenv local 3.5.2
+
+> 3.5.2 (set by /Users/choewonjun/Study/circleGiven.github.io/.python-version)
+```
+
+<br>
 
 ## > 새로운 pyenv 환경 설치
+install 뒤에는 설치될 파이썬 버젼이 온다.
 ```shell
 pyenv install 2.1.3
 
 > 2.1.3
 ```
-install 뒤에는 설치될 파이썬 버젼이 온다.<br>
+
+<br>
 
 ## > 설치 가능한 python version 목록
 ```shell
@@ -61,6 +117,8 @@ pyenv install --list
 ...
 > stackless-3.5.4
 ```
+
+<br>
 
 ## > 설치된 pyenv 환경 제거
 ```shell
