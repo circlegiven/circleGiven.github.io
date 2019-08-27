@@ -99,16 +99,6 @@ pyenv local 3.5.2
 
 <br>
 
-## > 새로운 pyenv 환경 설치
-```shell
-# pyenv install [version]
-pyenv install 2.1.3
-
-> 2.1.3
-```
-
-<br>
-
 ## > 설치 가능한 python version 목록
 ```shell
 pyenv install --list
@@ -119,6 +109,38 @@ pyenv install --list
 > 2.3.7
 ...
 > stackless-3.5.4
+```
+
+<br>
+
+## > 새로운 pyenv 환경 설치
+`pyenv install --list`를 통해 설치 가능한 버젼을 찾아 설치한다.
+```shell
+# pyenv install [version]
+pyenv install 2.1.3
+
+> 2.1.3
+```
+<br>
+
+만약 지원하지 않는 버젼이라면 아래와 같은 메세지가 나온다.
+```shell
+pyenv install ppap 
+ 
+> python-build: definition not found: ppap
+  See all available versions with `pyenv install --list'.
+  If the version you need is missing, try upgrading pyenv:
+    brew update && brew upgrade pyenv
+```
+
+<br>
+
+## > 현재 pyenv 환경을 복사
+```shell
+# pyenv virtualenv [env]
+pyenv virtualenv venv
+
+> venv
 ```
 
 <br>
