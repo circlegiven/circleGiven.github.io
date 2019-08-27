@@ -136,6 +136,7 @@ pyenv install ppap
 <br>
 
 ## > 현재 pyenv 환경을 복사
+`pyenv-virtualenv`가 필요하다.
 ```shell
 # pyenv virtualenv [env]
 pyenv virtualenv venv
