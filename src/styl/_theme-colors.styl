@@ -11,6 +11,25 @@ themes = {
     post-math: #ab631a,
 }
 
+categories = {
+    angular: #c71a18,
+    javascript: #D6BA32,
+    typescript: #2f8bab,
+    algorithm: #7e8ec7,
+    react: #2060ab,
+    python: #00a2ab,
+    spring: #4dab1d,
+    dev: #637a91,
+    book: #7AAB13,
+    math: #ab631a,
+}
+
+// tags title color
+for theme, category in categories
+    #{theme}
+        color category
+
+
 for theme, category-color in themes
     .{theme}
         .title-category
@@ -19,8 +38,8 @@ for theme, category-color in themes
             // post sub title
             h1,h2,h3,h4
                 color title
+            // post 내부 공유링크 (a 태그)
             a
-                // post 내부 공유링크 (a 태그)
                 color link
             // bold
             strong

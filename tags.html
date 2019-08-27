@@ -4,20 +4,20 @@ title: "#Tags"
 permalink: /tags/index.html
 description: "Search for your favorite #tag."
 ---
-
-<div class="tags">
-{% assign tags_list = site.tags %}
-  {% if tags_list.first[0] == null %}
-    {% for tag in tags_list %}
-        <a href="#{{ tag | slugify }}">{{ tag }}</a>
-    {% endfor %}
-  {% else %}
-    {% for tag in tags_list %}
-        <a href="#{{ tag[0] | slugify }}">{{ tag[0] }}</a>
-    {% endfor %}
-  {% endif %}
-{% assign tags_list = nil %}
-</div>
+<!-- tag list -->
+<!--<div class="tags">-->
+<!--{% assign tags_list = site.tags %}-->
+<!--  {% if tags_list.first[0] == null %}-->
+<!--    {% for tag in tags_list %}-->
+<!--        <a href="#{{ tag | slugify }}">{{ tag }}</a>-->
+<!--    {% endfor %}-->
+<!--  {% else %}-->
+<!--    {% for tag in tags_list %}-->
+<!--        <a href="#{{ tag[0] | slugify }}">{{ tag[0] }}</a>-->
+<!--    {% endfor %}-->
+<!--  {% endif %}-->
+<!--{% assign tags_list = nil %}-->
+<!--</div>-->
 
 {% for tag in site.tags  %}
     <span class="tag-title" id="{{ tag[0] | slugify }}">{{ tag[0] }}</span>
