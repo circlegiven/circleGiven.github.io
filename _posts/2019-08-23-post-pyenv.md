@@ -67,6 +67,7 @@ pyenv version
 
 ## > 현재 전역 python 버젼 설정
 ```shell
+# pyenv global [version]
 pyenv global 3.5.2
 
 > * 3.5.2 (set by /Users/choewonjun/.pyenv/version)
@@ -77,6 +78,7 @@ pyenv global 3.5.2
 ## > 현재 shell 의 python 버젼 설정
 현재 shell을 벗어나게 되면 초기화 된다 (터미널 창을 닫으면)
 ```shell
+# pyenv shell [version]
 pyenv shell 3.5.2
 
 > 3.5.2 (set by PYENV_VERSION environment variable)
@@ -89,6 +91,7 @@ pyenv shell 3.5.2
 `pyenv shell [version]` 명령어와는 달리 디렉토리를 벗어나도 초기화되지 않는다.<br>
 즉, 해당 디렉토리에 접근하면 자동으로 지정된 환경이 설정된다. 
 ```shell
+# pyenv local [version]
 pyenv local 3.5.2
 
 > 3.5.2 (set by /Users/choewonjun/Study/circleGiven.github.io/.python-version)
@@ -97,8 +100,8 @@ pyenv local 3.5.2
 <br>
 
 ## > 새로운 pyenv 환경 설치
-install 뒤에는 설치될 파이썬 버젼이 온다.
 ```shell
+# pyenv install [version]
 pyenv install 2.1.3
 
 > 2.1.3
@@ -122,5 +125,6 @@ pyenv install --list
 
 ## > 설치된 pyenv 환경 제거
 ```shell
+# pyenv uninstall [version]
 pyenv uninstall 2.1.3
 ```

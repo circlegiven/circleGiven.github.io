@@ -47,6 +47,7 @@ virtualenv --version
 ## > 현재 프로젝트에 새 virtualenv 생성
 현재 설정된 python 버젼으로 생성된다.
 ```shell
+# virtualenv [env]
 virtualenv venv
 
 > New python executable in /Users/choewonjun/Study/circleGiven.github.io/venv/bin/python
@@ -56,6 +57,7 @@ virtualenv venv
 <br>
 현재 설정된 python 버젼이 2.x 라면, 아래와 같은 option을 추가하여 python3 버젼으로 생성이 가능하다.
 ```shell
+# virtualenv -p python3 [env]
 virtualenv -p python3 venv
 
 > Running virtualenv with interpreter /Users/choewonjun/.pyenv/shims/python3
@@ -74,6 +76,7 @@ virtualenv -p python3 venv
 `.`과 `source` 명령어 둘다 적용된다.<br>
 적용시 shell 앞에 현재 `virtualenv`의 이름이 온다.
 ```shell
+# source [env]/bin/activate
 . venv/bin/activate
 source venv/bin/activate
 
@@ -90,4 +93,7 @@ deactivate
 <br>
 
 ## > 현재 설정된 virtualenv 제거
-그냥 삭제 하면 된다.
+```shell
+# rm -rf [env]
+rm -rf venv
+```
