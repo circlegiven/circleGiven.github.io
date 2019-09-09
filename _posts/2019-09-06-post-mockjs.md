@@ -453,22 +453,227 @@ Mock.mock({
       }
 }
 ```
-    
+
 <br>
 <br>
     
-## 점자
-점자는 mock.js 에서 제공되는 **생성자 모음**이다.<br>
+## Mock.Random
+여기까지만 보면 그렇게 딱히 mock.js의 매력이 없는것 같이 보인다.<br>
+mock.js의 매력은 바로 `Mock.Random`에 있다.<br>
+`Mock.Random`은 여러 랜덤 데이터를 생성하는데 사용되어 사용자가 일일이 value에 값을 입력하지 않아도된다.
+
 Mock.Random에 정의되어 있으며 value에서 `@`또는 `Mock.Random.`을 사용하여 값을 생성할 수 있다.<br>
-제공되는 점자마다 지원하는 parameter 있다.
+(`@`를 **점자**라 불른다.)
+```javascript
+Mock.mock({
+    "property1": Mock.Random.natural(),
+    "property2": Mock.Random.natural(10,20),
+    "property3": "@natural",
+    "property4": "@natural()",
+});
+```
 
 <br>
 
 ### > Boolaen
+`Random.boolean(min?, max?, value?)`는 **min / (min + max) 의 확률 만큼 value에 설정된 Boolean 값을 생성**한다.<br>
+min과 max의 기본 설정값은 **1**이다.
+```javascript
+Mock.mock({
+    "property": "@boolean()"
+});
 
-`Random.
+// result
+{
+    "property": false
+}
+```
 
+<br>
 
+### > Natural
+`Random.natural(min?, max?)`는 **min-max 범위내 무작위의 자연수를 생성**한다.<br>
+min의 기본 설정값은 **0**이며, max의 기본 설정값은 **9007199254740992**이다.
+```javascript
+Mock.mock({
+    "property": "@natural(20,40)"
+});
+
+// result
+{
+    "property": 24
+}
+```
+
+<br>
+
+### > Integer
+`Random.integer(min?, max?)`는 **min-max 범위내 무작위의 정수를 생성**한다.<br>
+min의 기본 설정값은 **-9007199254740992**이며, max의 기본 설정값은 **9007199254740992**이다.
+```javascript
+Mock.mock({
+    "property": "@integer(20,40)"
+});
+
+// result
+{
+    "property": 24
+}
+```
+
+<br>
+
+### > Float
+`Random.float(min?, max?, dmin?, dmax?)`는 **min-max 범위내 무작위의 정수를 생성하고 dmin-dmax 범위내 무작위의 수만큼 소수를 생성**한다.<br>
+min의 기본 설정값은 **-9007199254740992**이고, max의 기본 설정값은 **9007199254740992**이다.
+dmin의 기본 설정값은 **0**이며, dmax의 기본 설정값은 **17**이다.
+```javascript
+Mock.mock({
+    "property": "@float(20,40,1,1)"
+});
+
+// result
+{
+    "property": 32.3
+}
+```
+
+<br>
+
+### > Character
+`Random.character(pool?)`는 **하나의 무작위 문자열을 생성**한다.<br>
+지원하는 파라메터(pool)는 `lower`, `upper`, `number`, `symbol`, `문자열`이 있다.<br>
+> `lower` : 알파벳 소문자 <br>
+`upper` : 알파벳 대문자 <br>
+`number` : 숫자 <br>
+`symbol` : 특수문자 <br>
+`문자열` : 문자열 내 무작위 문자
+
+전달하지 않는 경우 문자열을 제외한 4가지 파라메터 중 무작위로 선택하여 생성한다.
+```javascript
+Mock.mock({
+    "property": '@character(upper)'
+});
+
+// result
+{
+    "property": "S"
+}
+```
+
+<br>
+
+### > String
+`Random.string(pool?, min?, max?)`는 **무작위 문자열을 생성**한다.<br>
+min의 기본 설정값은 **3**이며, max의 기본 설정값은 **7**이다.<br>
+따라서 파라메터를 넘기지 않고 호출시 자동으로 3, 7이 적용되어 문자열을 생성한다.
+```javascript
+Mock.mock({
+    "property": '@string()'
+});
+
+// result
+{
+    "property": "ABA2"
+}
+```
+숫자를 하나만 넘길 경우 **문자열의 길이**를 나타내고, 숫자를 두개 넘길 경우 **min-max 범위 내 문자열을 생성**한다.
+```javascript
+Mock.mock({
+    "property": '@string(3)'
+});
+
+// result
+{
+    "property": "nlC"
+}
+```
+지원하는 파라메터(pool)는 `Character`와 동일하지만 **단독으로는 사용할 수 없다.**
+> `lower` : 알파벳 소문자 <br>
+`upper` : 알파벳 대문자 <br>
+`number` : 숫자 <br>
+`symbol` : 특수문자 <br>
+`문자열` : 문자열 내 무작위 문자
+
+전달하지 않는 경우 문자열을 제외한 4가지 파라메터 중 무작위로 선택하여 생성한다.
+```javascript
+Mock.mock({
+    "property": '@string(upper, 3)'
+});
+
+// result
+{
+    "property": "MBH"
+}
+```
+
+<br>
+
+### > Range
+`Random.range(start?, stop, step?)`는 **start-stop 범위 내 step만큼 증가하는 숫자를 Array로 생성**한다.<br>
+step의 기본 설정값은 **1**이다. 따라서 세번쨰 인자로 주지않는한 항상 1씩 증가하는 숫자를 생성한다.<br>
+숫자를 하나만 넘길 경우, 0부터 넘긴 숫자까지 연속적인 숫자를 Array로 생성한다.
+```javascript
+Mock.mock({
+    "property": '@range(10)'
+});
+
+// result
+{
+    "property": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+```
+
+숫자를 두개 넘길 경우, 첫번째 인자부터 두번째 인자 전까지의 연속적인 숫자를 Array로 생성한다.<br>
+만약 첫번째 인자가 두번째 인자보다 큰 경우 빈 Array를 생성한다.
+```javascript
+Mock.mock({
+    "property": '@range(2, 5)'
+});
+
+// result
+{
+    "property": [2, 3, 4]
+}
+```
+숫자를 세개를 넘길 경우, 첫번째 인자부터 시작하여 두번째 인자 전까지 세번째 인자만큼 증가하는 숫자를 Array로 생성한다.
+```javascript
+Mock.mock({
+    "property": '@range(1, 10, 3)'
+});
+
+// result
+{
+    "property": [1, 4, 7]
+}
+```
+
+<br>
+<br>
+
+## Mock.Random.extend
+`Mock.Random`은 사용자가 원하는 값을 추가할 수 있도록 `exntent`메서드를 제공한다.<br>
+즉 기존에 mock.js가 제공하지 않아도 사용자가 직접 추가하여 사용이 가능하다.<br>
+enum을 추가하면 유용하다.
+
+아래와 같은 방식으로 추가한다.
+```javascript
+Mock.Random.extend({
+    payment: function(data) {
+      return this.pick(['카드','현금','포인트']);
+    }
+});
+
+// usage
+Mock.mock({
+    "property": "@payment()"
+});
+
+// result
+{
+    "property": "현금"
+}
+```
 
 ---
 # Reference
