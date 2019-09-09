@@ -395,7 +395,7 @@ Mock.mock({
 
 <br>
 
-## > Path value
+### > Path value
 Function 내부에서의 this와 같이 property를 읽어서 사용할 수 있다. <br>
 `this`는 불러들일 수 있는 property의 범위가 제한적이나 `Path`를 사용하면 depth가 깊은 property도 불러올수 있다. <br>
 **Path를 사용하여 property를 읽은 후 새로운 문자열을 생성**한다.
@@ -552,7 +552,7 @@ Mock.mock({
 전달하지 않는 경우 문자열을 제외한 4가지 파라메터 중 무작위로 선택하여 생성한다.
 ```javascript
 Mock.mock({
-    "property": '@character(upper)'
+    "property": "@character('upper')"
 });
 
 // result
@@ -598,7 +598,7 @@ Mock.mock({
 전달하지 않는 경우 문자열을 제외한 4가지 파라메터 중 무작위로 선택하여 생성한다.
 ```javascript
 Mock.mock({
-    "property": '@string(upper, 3)'
+    "property": "@string('upper', 3)"
 });
 
 // result
@@ -645,6 +645,117 @@ Mock.mock({
 // result
 {
     "property": [1, 4, 7]
+}
+```
+
+<br>
+
+### > Date
+`Random.date(format?)`은 **무작위의 날짜 문자열을 생성**한다.<br>
+format의 기본 설정값은 **yyyy-MM--dd** 포맷이다.<br>
+format은 생성된 문자열의 표시를 변경한다.
+```javascript
+Mock.mock({
+    "property": "@date()"
+});
+
+// result
+{
+    "property": "1975-08-28"
+}
+```
+format에 들어갈 수 있는 점자는 아래와 같다.
+
+| Format 	|             Description             	|
+|:------:|:-----------------------------------:|
+|  yyyy  	| 연도의 전체숫자                     	|
+|   yy   	| 연도 두 자릿수                      	|
+|    y   	| 연도 두 자릿수                      	|
+|   MM   	| 0이 포함되는 월의 숫자              	|
+|    M   	| 0이 포함되지 않는 월의 숫자         	|
+|   dd   	| 0이 포함되는 일의 숫자              	|
+|    d   	| 0이 포함되지 않는 일의 숫자         	|
+|   HH   	|  0이 포함되는 24 형태의 시간        	|
+|    H   	| 0이 포함되지 않는 24 형태의 시간    	|
+|   hh   	| 0이 포함되는 12 형태의 시간         	|
+|    h   	| 0이 포함되지 않는 12 형태의 시간    	|
+|   mm   	| 0이 포함되는 분                     	|
+|    m   	| 0이 포함되지 않는 분                	|
+|   ss   	| 0이 포함되는 초                     	|
+|    s   	| 0이 포함되지 않는 초                	|
+|   SS   	| 0이 포함되는 밀리초                 	|
+|    S   	| 0이 포함되지 않는 초                	|
+|    A   	| AM 또는 PM 표기                     	|
+|    a   	| am 또는 pm 표기                     	|
+|    T   	| 1970-1-1 00:00:00 UTC 이후의 밀리초 	|
+
+<br>
+
+### > Time
+`Random.time(format?)`은 **무작위의 시간 문자열을 생성**한다.<br>
+format의 기본 설정값은 **HH:mm:ss** 포맷이다.<br>
+format은 생성된 문자열의 표시를 변경한다.
+```javascript
+Mock.mock({
+    "property": "@time()"
+});
+
+// result
+{
+    "property": "19:56:36"
+}
+```
+format에 들어갈 수 있는 점자는 `Date`와 같다.
+
+<br>
+
+### > Datetime
+`Random.datetime(format?)`은 **무작위의 날짜와 시간 문자열을 생성**한다.<br>
+format의 기본 설정값은 **yyyy-MM-dd HH:mm:ss** 포맷이다.
+```javascript
+Mock.mock({
+    "property": "@datetime()"
+});
+
+// result
+{
+    "property": "1971-06-30 21:13:57"
+}
+```
+format에 들어갈 수 있는 점자는 `Date`와 같다.
+
+<br>
+
+### > Now
+`Random.now(unit?, format?)`은 **현재 날짜와 시간 문자열을 생성**한다.<br>
+Random.now()는 [moment.js](https://momentjs.com/)를 참조하여 만들어졌다.<br>
+unit은 현재 시간 중 어떤 값까지를 표시해줄 것인지를 지정한다.<br>
+지정 가능한 값은 `year`、 `month`、 `week`、 `day`、 `hour`、 `minute`、 `second`、 `week`가 있다.<br>
+값을 지정한 경우 그 하위의 단위는 최솟값으로 표시된다.
+```javascript
+Mock.mock({
+    "property1": "@now('year')",
+    "property2": "@now('day')"
+});
+
+// result
+{
+    "property1": "2019-01-01 00:00:00",
+    "property2": "2019-09-09 00:00:00"
+}
+```
+format은 생성된 문자열의 표시를 변경한다.<br>
+format에 들어갈 수 있는 점자는 `Date`와 같다.
+```javascript
+Mock.mock({
+    "property1": "@now('year', 'yyyy-MM-dd')",
+    "property2": "@now('day', 'yyyy-MM-dd')"
+});
+
+// result
+{
+    "property1": "2019-01-01",
+    "property2": "2019-09-09"
 }
 ```
 
