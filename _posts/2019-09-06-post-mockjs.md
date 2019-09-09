@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "Fake API를 만들때 유용한 mock.js 라이브러리"
+title: "Fake API를 만들때 유용한 mock.js"
 description:
 date: 2019-09-06 21:03:11
 main-class: 'js'
@@ -756,6 +756,132 @@ Mock.mock({
 {
     "property1": "2019-01-01",
     "property2": "2019-09-09"
+}
+```
+
+<br>
+
+### > Image
+`Random.image(size?, background?, foreground?, format?, text?)`는 **무작위의 이미지 주소를 생성**한다.<br>
+
+**size**는 이미지의 크기를 문자열로 입력한다.<br>
+만약 입력하지 않는 경우 아래의 사이즈 목록 중 무작위로 생성한다.
+![test](http://dummyimage.com/728x90)
+```javascript
+// size array
+[
+  '300x250', '250x250', '240x400', '336x280', 
+  '180x150', '720x300', '468x60', '234x60', 
+  '88x31', '120x90', '120x60', '120x240', 
+  '125x125', '728x90', '160x600', '120x600', 
+  '300x600'
+]
+
+Mock.mock({
+    "property": "@image()"
+});
+
+// result
+{
+    "property": "http://dummyimage.com/728x90"
+}
+```
+
+**background**는 이미지의 배경색을 문자열로 입력한다.<br>
+입력하지 않은 경우 기본 설정값은 **'#000000'**이다.
+![test](http://dummyimage.com/200x100/FF6600)
+```javascript
+Mock.mock({
+    "property": "@image('200x100', '#FF6600')"
+});
+
+// result
+{
+    "property": "http://dummyimage.com/200x100/FF6600"
+}
+```
+
+**foreground**는 이미지 내부의 글자색을 입력한다.<br>
+입력하지 않은 경우 기본 설정값은 **'#FFFFFF'**이다.
+![test](http://dummyimage.com/200x100/FF6600&text=#FFF)
+```javascript
+Mock.mock({
+    "property": "@image('200x100', '#FF6600', '#FFF')",
+});
+
+// result
+{
+    "property": "http://dummyimage.com/200x100/FF6600/FFF"
+}
+```
+
+**format**은 이미지의 확장자를 의미한다.<br>
+`png`, `gif`, `jpg` 중 선택할 수 있으며, 입력하지 않은 경우 **'png'**이다.<br>
+단, text인자와 같이 입력되어야한다.
+![test](http://dummyimage.com/200x100/FF6600/FFF.jpg&text=test)
+```javascript
+Mock.mock({
+    "property": "@image('200x100', '#FF6600', '#FFF', 'jpg', 'test')",
+});
+
+// result
+{
+    "property": "http://dummyimage.com/200x100/FF6600/FFF.jpg&text=test"
+}
+```
+
+**text**는 이미지 내부의 글자를 의미한다.<br>
+입력하지 않은 경우 기본 설정값은 **이미지의 크기**이다.
+![test](http://dummyimage.com/200x100/FF6600/FFF.jpg&text=test)
+```javascript
+Mock.mock({
+    "property": "@image('200x100', '#FF6600', '#FFF', 'jpg', 'test')",
+});
+
+// result
+{
+    "property": "http://dummyimage.com/200x100/FF6600/FFF.jpg&text=test"
+}
+```
+
+<br>
+
+### > Dataimage
+`Random.dataimage(size?, text?)`는 **무작위의 이미지 리소스를 생성**한다.<br>
+이미지의 배경색은 항상 무작위로 생성되며, 생성되는 값은 [brandcolors](http://brandcolors.net/)를 참조하자.
+
+**size**는 이미지의 크기를 문자열로 입력한다.<br>
+만약 입력하지 않는 경우 아래의 사이즈 목록 중 무작위로 생성한다.
+```javascript
+// size array
+[
+  '300x250', '250x250', '240x400', '336x280', 
+  '180x150', '720x300', '468x60', '234x60', 
+  '88x31', '120x90', '120x60', '120x240', 
+  '125x125', '728x90', '160x600', '120x600', 
+  '300x600'
+]
+
+Mock.mock({
+    "property": "@dataimage()"
+});
+
+// result
+{
+    "property": "data:image/png;base64,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"
+}
+```
+
+**text**는 이미지 내부의 글자를 의미한다.<br>
+입력하지 않은 경우 기본 설정값은 **이미지의 크기**이다.
+```javascript
+Mock.mock({
+    "property": "@dataimage('200x100', 'test')",
+});
+
+// result
+{
+    "property": "data:image/png;base64,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"
 }
 ```
 
