@@ -778,6 +778,141 @@ Mock.mock({
 `Random.cname()`는 **성을 포함한 중국 이름을 무작위로 생성**한다.
 
 <br>
+
+## Web
+### > Url
+`Random.url(protocol?, host?)`는 **무작위로 URL 주소를 생성**한다.
+```javascript
+Mock.mock({
+    "property": "@url()"
+});
+
+// result
+{   
+    "property": "mid://axmg.bg/bhyq"
+}
+```
+
+**protocol**은 생성될 URL 앞에 프로토콜을 지정할 수 있다.
+```javascript
+Mock.mock({
+    "property": "@url('http')"
+});
+
+// result
+{   
+    "property": "http://splap.yu/qxzkyoubp"
+}
+```
+
+**host**는 생성될 URL의 도메인과 포트번호를 지정할 수 있다.
+```javascript
+Mock.mock({
+    "property": "@url('http', 'nuysoft.com')"
+});
+
+// result
+{   
+    "property": "http://nuysoft.com/ewacecjhe"
+}
+```
+
+<br>
+
+### > Protocol
+`Random.protocol()`은 **프로토콜을 무작위로 생성**한다.<br>
+아래의 프로토콜 중 무작위로 선택된다.
+```javascript
+[
+    'http', 'ftp', 'gopher', 'mailto', 'mid', 'cid',
+    'news', 'nntp', 'prospero', 'telnet', 'rlogin', 'tn3270', 'wais'
+]
+```
+```javascript
+Mock.mock({
+    "property": "@protocol()"
+});
+
+// result
+{   
+    "property": "http"
+}
+```
+
+<br>
+
+### > Domain
+`Random.domain()`은 **도메인을 무작위로 생성**한다.
+```javascript
+Mock.mock({
+    "property": "@domain()"
+});
+
+// result
+{   
+    "property": "kozfnb.org"
+}
+```
+
+<br>
+
+### > Top level domain
+`Random.tld()`는 **상위 레벨의 도메인을 무작위로 생성**한다.
+```javascript
+Mock.mock({
+    "property": "@tld()"
+});
+
+// result
+{   
+    "property": "ro"
+}
+```
+
+<br>
+
+### > Email
+`Random.email(domain?)`은 **이메일을 무작위로 생성**한다.
+```javascript
+Mock.mock({
+    "property": "@email()"
+});
+
+// result
+{   
+    "property": "y.gyplch@vtivmy.pe"
+}
+```
+**domain**은 생성될 이메일의 도메인을 지정할 수 있다.
+```javascript
+Mock.mock({
+    "property": "@email('test.com')"
+});
+
+// result
+{   
+    "property": "i.geygmpx@test.com"
+}
+```
+
+<br>
+
+### > IP
+`Random.ip()`는 **IP 주소를 무작위로 생성**한다.
+```javascript
+Mock.mock({
+    "property": "@ip()"
+});
+
+// result
+{   
+    "property": "162.115.55.151"
+}
+```
+
+
+
+<br>
 <br>
 
 # Mock.Random.extend
