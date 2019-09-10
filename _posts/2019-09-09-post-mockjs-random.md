@@ -910,7 +910,191 @@ Mock.mock({
 }
 ```
 
+<br>
 
+## Address
+Address 부분은 `Random.zip()`을 제외한 나머지는 모두 중국내 지명으로 되어있다.<br>
+굳이 쓸 일이 많지 않을 것 같아서 간략히 소개만하고 넘어가도록 하겠다.
+
+<br>
+
+
+### > Region
+`Random.region()`은 **중국 내에서 대 구역을 무작위로 생성**한다.
+
+<br>
+
+### > Province
+`Random.province()`는 **중국 내에서 성 또는 직할시, 자치구를 무작위로 생성**한다.
+
+<br>
+
+### > City
+`Random.city(prefix?)`는 **중국 내에서 시를 무작위로 생성**한다.<br>
+**prefix**는 **true**를 입력시 시가 속한 성을 표기한다.
+
+<br>
+
+### > Country
+`Random.country(prefix?)`는 **중국 내에서 현을 무작위로 생성**한다.<br>
+**prefix**는 **true**를 입력시 현이 속한 성과 시를 표기한다.
+
+<br>
+
+### > Zip
+`Random.zip()`은 **6자리의 우편번호를 무작위로 생성**한다.
+```javascript
+Mock.mock({
+    "property": "@zip()"
+});
+
+// result
+{   
+    "property": "908812"
+}
+```
+
+<br>
+
+## Miscellaneous
+### > UUID
+`Random.guid()`는 **무작위로 하나의 UUID를 생성**한다.<br>
+생성되는 UUID는 [UUID 규범](https://www.ietf.org/rfc/rfc4122.txt)에 따른다.
+```javascript
+Mock.mock({
+    "property": "@guid()"
+});
+
+// result
+{   
+    "property": "662C63B4-FD43-66F4-3328-C54E3FF0D56E"
+}
+```
+
+<br>
+
+### > ID
+`Random.guid()`는 **18개의 숫자로 구성된 ID를 생성**한다.
+```javascript
+Mock.mock({
+    "property": "@id()"
+});
+
+// result
+{   
+    "property": "420000200710091854"
+}
+```
+
+<br>
+
+### > Increment
+`Random.increment(step?)`는 **일정하게 증가하는 숫자를 생성**한다.
+```javascript
+Mock.mock({
+    "property|5": [
+        "@increment()"
+    ]
+});
+
+// result
+{   
+    "property": [1, 2, 3, 4, 5]   
+}
+```
+**step**은 증가시킬 숫자를 지정한다. 기본 설정값은 **1**이다.
+```javascript
+Mock.mock({
+    "property|5": [
+        "@increment(10)"
+    ]
+});
+
+// result
+{   
+    "property": [10, 20, 30, 40, 50]   
+}
+```
+
+<br>
+
+## Helper
+여기에 소개될 것은 Random에 정의되어있긴 하지만 이전까지와는 다른 유틸성이 있는 메서드들이다.
+
+<br>
+
+### > Capitalize
+`Random.capitalize(str)`는 **전달 받은 문자열을 첫 번쨰 문자만 대문자로 변환**한다.
+```javascript
+Mock.mock({
+    "property": "@capitalize('circlegiven')"
+});
+
+// result
+{   
+    "property": "Circlegiven"
+}
+```
+
+<br>
+
+### > Upper
+`Random.upper(str)`는 **전달 받은 문자열을 모두 대문자로 변환**한다.
+```javascript
+Mock.mock({
+    "property": "@upper('circlegiven')"
+});
+
+// result
+{   
+    "property": "CIRCLEGIVEN"
+}
+```
+
+<br>
+
+### > Lower
+`Random.lower(str)`는 **전달 받은 문자열을 모두 소문자로 변환**한다.
+```javascript
+Mock.mock({
+    "property": "@lower('CIRCLEGIVEN')"
+});
+
+// result
+{   
+    "property": "circlegiven"
+}
+```
+
+<br>
+
+### > Pick
+`Random.pick(array)`는 **전달 받은 배열에서 무작위로 하나의 원소를 추출**한다.
+```javascript
+Mock.mock({
+    "property": "@pick([1,2,3,4,5])"
+});
+
+// result
+{   
+    "property": 2
+}
+```
+
+<br>
+
+### > Shuffle
+`Random.shuffle(array)`은 **전달 받은 배열 내의 원소를 섞는다.**
+```javascript
+Mock.mock({
+    "property": "@shuffle([1,2,3,4,5])"
+});
+
+// result
+{   
+    "property": [3, 5, 2, 1, 4]
+}
+```
 
 <br>
 <br>
@@ -924,6 +1108,7 @@ enum을 추가하면 유용하다.
 ```javascript
 Mock.Random.extend({
     payment: function(data) {
+      // Random.pick 이용
       return this.pick(['카드','현금','포인트']);
     }
 });
