@@ -371,7 +371,7 @@ Mock.mock({
 ![test](http://dummyimage.com/200x100/FF6600&text=#FFF)
 ```javascript
 Mock.mock({
-    "property": "@image('200x100', '#FF6600', '#FFF')",
+    "property": "@image('200x100', '#FF6600', '#FFF')"
 });
 
 // result
@@ -386,7 +386,7 @@ Mock.mock({
 ![test](http://dummyimage.com/200x100/FF6600/FFF.jpg&text=test)
 ```javascript
 Mock.mock({
-    "property": "@image('200x100', '#FF6600', '#FFF', 'jpg', 'test')",
+    "property": "@image('200x100', '#FF6600', '#FFF', 'jpg', 'test')"
 });
 
 // result
@@ -400,7 +400,7 @@ Mock.mock({
 ![test](http://dummyimage.com/200x100/FF6600/FFF.jpg&text=test)
 ```javascript
 Mock.mock({
-    "property": "@image('200x100', '#FF6600', '#FFF', 'jpg', 'test')",
+    "property": "@image('200x100', '#FF6600', '#FFF', 'jpg', 'test')"
 });
 
 // result
@@ -441,7 +441,7 @@ Mock.mock({
 입력하지 않은 경우 기본 설정값은 **이미지의 크기**이다.
 ```javascript
 Mock.mock({
-    "property": "@dataimage('200x100', 'test')",
+    "property": "@dataimage('200x100', 'test')"
 });
 
 // result
@@ -457,7 +457,7 @@ Mock.mock({
 `Random.color()`는 **#RRGGBB 포맷의 색상을 무작위로 생성**한다.<br>
 ```javascript
 Mock.mock({
-    "property": "@color()",
+    "property": "@color()"
 });
 
 // result
@@ -474,7 +474,7 @@ Mock.mock({
 공식 문서에서도 뭐가 정확히 다른지에 대해 표기하고 있지 않다.<br>
 ```javascript
 Mock.mock({
-    "property": "@hex()",
+    "property": "@hex()"
 });
 
 // result
@@ -489,7 +489,7 @@ Mock.mock({
 `Random.rgb()`는 **rgb(r, g, b) 포맷의 색상을 무작위로 생성**한다.<br>
 ```javascript
 Mock.mock({
-    "property": "@rgb()",
+    "property": "@rgb()"
 });
 
 // result
@@ -504,7 +504,7 @@ Mock.mock({
 `Random.rgba()`는 **rgba(r, g, b, a) 포맷의 색상을 무작위로 생성**한다.<br>
 ```javascript
 Mock.mock({
-    "property": "@rgba()",
+    "property": "@rgba()"
 });
 
 // result
@@ -519,7 +519,7 @@ Mock.mock({
 `Random.hsl()`는 **hsl(h, s, l) 포맷의 색상을 무작위로 생성**한다.<br>
 ```javascript
 Mock.mock({
-    "property": "@hsl()",
+    "property": "@hsl()"
 });
 
 // result
@@ -535,7 +535,7 @@ Mock.mock({
 `Random.paragraph(min?, max?)`는 **무작위 문자열을 단락으로 생성**한다.
 ```javascript
 Mock.mock({
-    "property": "@paragraph()",
+    "property": "@paragraph()"
 });
 
 // result
@@ -548,7 +548,7 @@ Mock.mock({
 min만 단독으로 넘길 경우, 단락의 수로 설정된다.
 ```javascript
 Mock.mock({
-    "property": "@paragraph(1)",
+    "property": "@paragraph(1)"
 });
 
 // result
@@ -560,7 +560,7 @@ Mock.mock({
 **max**는 단락의 최대 갯수를 나타낸다. 기본 설정값은 **7**이다.
 ```javascript
 Mock.mock({
-    "property": "@paragraph(1, 2)",
+    "property": "@paragraph(1, 2)"
 });
 
 // result
@@ -581,7 +581,7 @@ Mock.mock({
 `Random.sentence(min?, max?)`는 **첫 글자만 대문자인 하나의 문장을 무작위로 생성**한다.
 ```javascript
 Mock.mock({
-    "property": "@sentence()",
+    "property": "@sentence()"
 });
 
 // result
@@ -594,7 +594,7 @@ Mock.mock({
 min만 단독으로 넘길 경우, 단락의 수로 설정된다.
 ```javascript
 Mock.mock({
-    "property": "@sentence(2)",
+    "property": "@sentence(2)"
 });
 
 // result
@@ -606,7 +606,7 @@ Mock.mock({
 **max**는 문장 내 단어의 최대 갯수를 나타낸다. 기본 설정값은 **18**이다.
 ```javascript
 Mock.mock({
-    "property": "@sentence(2, 4)",
+    "property": "@sentence(2, 4)"
 });
 
 // result
@@ -628,7 +628,7 @@ Mock.mock({
 `Random.word(min?, max?)`는 **무작위 단어를 생성**한다.<br>
 ```javascript
 Mock.mock({
-    "property": "@word()",
+    "property": "@word()"
 });
 
 // result
@@ -641,7 +641,7 @@ Mock.mock({
 min만 단독으로 넘길 경우, 단어의 길이로 설정된다.
 ```javascript
 Mock.mock({
-    "property": "@word(2)",
+    "property": "@word(2)"
 });
 
 // result
@@ -653,7 +653,7 @@ Mock.mock({
 **max**는 단어 최대 길이를 나타낸다. 기본 설정값은 **10**이다.<br>
 ```javascript
 Mock.mock({
-    "property": "@word(2, 4)",
+    "property": "@word(2, 4)"
 });
 
 // result
@@ -675,7 +675,7 @@ Mock.mock({
 `@sentence`와 다른점은 모든 단어의 시작이 **대문자**라는 점이다.
 ```javascript
 Mock.mock({
-    "property": "@title()",
+    "property": "@title()"
 });
 
 // result
@@ -688,7 +688,7 @@ Mock.mock({
 min만 단독으로 넘길 경우, 단어의 갯수로 설정된다.
 ```javascript
 Mock.mock({
-    "property": "@title(2)",
+    "property": "@title(2)"
 });
 
 // result
@@ -700,7 +700,7 @@ Mock.mock({
 **max**는 문장 내 단어의 최대 갯수를 나타낸다. 기본 설정값은 **7**이다.<br>
 ```javascript
 Mock.mock({
-    "property": "@title(2, 4)",
+    "property": "@title(2, 4)"
 });
 
 // result
@@ -714,6 +714,68 @@ Mock.mock({
 ### > Ctitle
 `Random.ctitle(min?, max?)`는 **무작위 중국어 문장을 생성**한다.<br>
 사용법은 `@title`과 같다.
+
+<br>
+
+## Name
+### > First
+`Random.first()`는 **영문 이름을 무작위로 생성**한다.
+```javascript
+Mock.mock({
+    "property": "@first()"
+});
+
+// result
+{   
+    "property": "Nancy"
+}
+```
+
+<br>
+
+### > Last
+`Random.first()`는 **영문 성을 무작위로 생성**한다.
+```javascript
+Mock.mock({
+    "property": "@last()"
+});
+
+// result
+{   
+    "property": "Martinez"
+}
+```
+
+<br>
+
+### > Name
+`Random.name(middle?)`는 **성을 포함한 영문 이름을 무작위로 생성**한다.<br>
+**middle**은 미들네임을 허용할 경우 **true**를 주면된다. 
+```javascript
+Mock.mock({
+    "property": "@name()"
+});
+
+// result
+{   
+    "property": "Larry Wilson"
+}
+```
+
+<br>
+
+### > Cfirst
+`Random.cfirst()`는 **중국 이름을 무작위로 생성**한다.
+
+<br>
+
+### > Clast
+`Random.clast()`는 **중국 성을 무작위로 생성**한다.
+
+<br>
+
+### > Cname
+`Random.cname()`는 **성을 포함한 중국 이름을 무작위로 생성**한다.
 
 <br>
 <br>
