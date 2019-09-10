@@ -468,7 +468,7 @@ Mock.mock({
 
 <br>
 
-### > Hex
+### > HEX
 `Random.hex()`는 **#RRGGBB 포맷의 색상을 무작위로 생성**한다.<br>
 이것만 보면 `@color`와 다를게 없어보인다.<br>
 공식 문서에서도 뭐가 정확히 다른지에 대해 표기하고 있지 않다.<br>
@@ -485,7 +485,7 @@ Mock.mock({
 
 <br>
 
-### > Rgb
+### > RGB
 `Random.rgb()`는 **rgb(r, g, b) 포맷의 색상을 무작위로 생성**한다.<br>
 ```javascript
 Mock.mock({
@@ -500,7 +500,7 @@ Mock.mock({
 
 <br>
 
-### > Rgba
+### > RGBA
 `Random.rgba()`는 **rgba(r, g, b, a) 포맷의 색상을 무작위로 생성**한다.<br>
 ```javascript
 Mock.mock({
@@ -515,7 +515,7 @@ Mock.mock({
 
 <br>
 
-### > Hsl
+### > HSL
 `Random.hsl()`는 **hsl(h, s, l) 포맷의 색상을 무작위로 생성**한다.<br>
 ```javascript
 Mock.mock({
@@ -571,7 +571,7 @@ Mock.mock({
 
 <br>
 
-### > Cparagraph
+### > China Paragraph
 `Random.cparagraph(min?, max?)`는 **무작위 중국어 문자열을 단락으로 생성**한다.<br>
 사용법은 `@paragraph`와 같다.
 
@@ -617,7 +617,7 @@ Mock.mock({
 
 <br>
 
-### > Csentence
+### > China Sentence
 `Random.csentence(min?, max?)`는 **무작위 중국어 문장을 생성**한다.<br>
 사용법은 `@sentence`와 같다.
 
@@ -664,7 +664,7 @@ Mock.mock({
 
 <br>
 
-### > Cword
+### > China Word
 `Random.cword(pool?, min?, max?)`는 **무작위 중국어 단어를 생성**한다.<br>
 사용될 한자 문자열을 넣는 **pool**을 제외한 사용법은 `@word`와 같다.
 
@@ -711,14 +711,14 @@ Mock.mock({
 
 <br>
 
-### > Ctitle
+### > China Title
 `Random.ctitle(min?, max?)`는 **무작위 중국어 문장을 생성**한다.<br>
 사용법은 `@title`과 같다.
 
 <br>
 
 ## Name
-### > First
+### > First Name
 `Random.first()`는 **영문 이름을 무작위로 생성**한다.
 ```javascript
 Mock.mock({
@@ -733,7 +733,7 @@ Mock.mock({
 
 <br>
 
-### > Last
+### > Last Name
 `Random.first()`는 **영문 성을 무작위로 생성**한다.
 ```javascript
 Mock.mock({
@@ -748,7 +748,7 @@ Mock.mock({
 
 <br>
 
-### > Name
+### > Full Name
 `Random.name(middle?)`는 **성을 포함한 영문 이름을 무작위로 생성**한다.<br>
 **middle**은 미들네임을 허용할 경우 **true**를 주면된다. 
 ```javascript
@@ -764,23 +764,23 @@ Mock.mock({
 
 <br>
 
-### > Cfirst
+### > China First Name
 `Random.cfirst()`는 **중국 이름을 무작위로 생성**한다.
 
 <br>
 
-### > Clast
+### > China Last Name
 `Random.clast()`는 **중국 성을 무작위로 생성**한다.
 
 <br>
 
-### > Cname
+### > China Full Name
 `Random.cname()`는 **성을 포함한 중국 이름을 무작위로 생성**한다.
 
 <br>
 
 ## Web
-### > Url
+### > URL
 `Random.url(protocol?, host?)`는 **무작위로 URL 주소를 생성**한다.
 ```javascript
 Mock.mock({
