@@ -49,15 +49,25 @@ Mock.mock({
 });
 ```
 
-**function**은 template대신에 전달 받으며 `return`을 통해 데이터를 생성한다.
+**function**은 template대신에 전달 받으며 `return`을 통해 데이터를 생성한다.<br>
+template와 같이 사용될 수도 있고, API 통신시 request 객체에 담아있던 정보도 조회가 가능하다.
 ```javascript
+Mock.mock(function(options) {
+    return options;
+});
 
+// result
+{
+    "url": "hello.json",
+    "type": "POST",
+    "body": "foo=1&bar=2&faz=3"
+}
 ```
 
 <br>
 <br>
 
-## Setup
+## Setup method
 실제로 API 통신을 하면 데이터베이스를 조회하고 처리하는 시간 때문에 호출하고 데이터를 받기까지의 시간이 있다.<br>
 mock.js에서 제공하는 것은 실제로 데이터베이스를 조회하지 않기 때문에 데이터를 받기까지의 시간이 걸리지 않는다.
 
@@ -78,7 +88,10 @@ Mock.setup({
 });
 ```
 
-## Validation
+<br>
+<br>
+
+## Validation method
 mock.js를 사용하는 목적은 실제 어플리케이션에서 API 통신 후 얻는 데이터를 구현하는데 있다.<br>
 일일이 데이터를 구현하는데도 시간이 걸리지만 그 데이터가 유효하게 입력되었는지 검증까지 하면 더욱 시간이 걸린다.<br>
 mock.js에서는 데이터를 유효하게 입력하였는지 검증을 도와줄 method가 제공된다.
@@ -115,10 +128,52 @@ Mock.valid(template, targetData);
     }
 ]
 ```
-이런식으로 property의 수를 맞추지 않거나, property의 depth가 다르거나, value가 다르게 입력하였을때의 정보가 모두 표시된다.
+이런식으로 property의 수가 다르거나, property의 depth가 다르거나, value가 다르게 입력하였을때의 정보가 모두 표시된다.
 
 <br>
 <br>
+
+## JSON transfer method
+`Mock.toJSONSchema( template )`를 사용하여 mock.js에서만 쓰이는 스타일(`property|1-10`과 같은 형태)의 데이터를 JSON schema로 변환한다.
+```javascript
+Mock.toJSONSchema({ 
+    'property|1-10': '*'
+});
+
+// result
+{
+    "name": undefined,
+    "path": [
+        "ROOT"
+    ],
+    "type": "object",
+    "template": {
+        "key|1-10": "★"
+    },
+    "rule": {},
+    "properties": [{
+        "name": "key",
+        "path": [
+            "ROOT",
+            "key"
+        ],
+        "type": "string",
+        "template": "★",
+        "rule": {
+            "parameters": ["key|1-10", "key", null, "1-10", null],
+            "range": ["1-10", "1", "10"],
+            "min": 1,
+            "max": 10,
+            "count": 3,
+            "decimal": undefined,
+            "dmin": undefined,
+            "dmax": undefined,
+            "dcount": undefined
+        }
+    }]
+}
+```
+
 
 ## Property Rule
 `property`에는 실제 조회시 결과에서 표시될 **property name**이 온다. <br>
