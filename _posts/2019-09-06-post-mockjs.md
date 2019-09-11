@@ -174,6 +174,8 @@ Mock.toJSONSchema({
 }
 ```
 
+<br>
+<br>
 
 ## Property Rule
 `property`에는 실제 조회시 결과에서 표시될 **property name**이 온다. <br>
