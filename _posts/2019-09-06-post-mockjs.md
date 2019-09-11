@@ -29,6 +29,98 @@ npm install mockjs
 <br>
 
 # Manual
+mock.js는 기본적으로 `Mock.mock(url?, restType?, template|function)`을 사용한다.
+
+**url**은 웹에서 Ajax를 요청을 받을 URL을 설정한다.<br>
+```javascript
+Mock.mock('test/1', {
+    'property': 3
+});
+```
+
+**restType**은 웹에서 Ajax를 요청할때 method를 설정한다. <br>
+일반적인 REST 명세처럼 `GET`, `POST`, `PUT`, `DELETE`가 있다.
+
+**template**는 필수 값이며, **객체**안에 `property:value`형태로 전달하거나 **문자열**을 전달할 수 있다.<br>
+mock.js에서 실제로 데이터를 생성하는 값을 정의한다.
+```javascript
+Mock.mock({
+    'property': 3
+});
+```
+
+**function**은 template대신에 전달 받으며 `return`을 통해 데이터를 생성한다.
+```javascript
+
+```
+
+<br>
+<br>
+
+## Setup
+실제로 API 통신을 하면 데이터베이스를 조회하고 처리하는 시간 때문에 호출하고 데이터를 받기까지의 시간이 있다.<br>
+mock.js에서 제공하는 것은 실제로 데이터베이스를 조회하지 않기 때문에 데이터를 받기까지의 시간이 걸리지 않는다.
+
+그래서 시간이 걸리는 효과를 보여주기 위해 `Mock.setup()`을 이용하여 **timeout**을 걸어준다.<br>
+기본적으로는 mock.js에서 **10에서 100사이의 밀리초** 후에 데이터를 전송하고있다.
+```javascript
+Mock.setup({
+    // 400 밀리초 후에 데이터를 전송
+    timeout: 400
+});
+```
+무작위의 시간이 걸리도록 설정도 가능하다. <br>
+위와는 달리 **string**문자열로 넘겨야된다.
+```javascript
+Mock.setup({
+    // 200과 600 밀리초 사이의 무작위 시간 후 데이터를 전송
+    timeout: '200-600'
+});
+```
+
+## Validation
+mock.js를 사용하는 목적은 실제 어플리케이션에서 API 통신 후 얻는 데이터를 구현하는데 있다.<br>
+일일이 데이터를 구현하는데도 시간이 걸리지만 그 데이터가 유효하게 입력되었는지 검증까지 하면 더욱 시간이 걸린다.<br>
+mock.js에서는 데이터를 유효하게 입력하였는지 검증을 도와줄 method가 제공된다.
+
+`Mock.valid(template, targetData)`를 사용하면 검증할 수 있다.<br>
+**template**에는 내가 구현한 데이터를, **targetData**에는 구현할 실제 대상을 넣는다.
+```javascript
+const template = {
+    configVersion: 1,
+    dataGroups: [],
+    index: "/index.html",
+};
+
+const targetData = {
+    configVersion: 1,
+    dataGroups: [],
+    index: "/index.html",
+    timestamp: 1566174116784
+};
+
+Mock.valid(template, targetData);
+
+// result
+[
+    {
+        "path": [
+            "ROOT"
+        ],
+        "type": "properties length",
+        "actual": 4,
+        "expected": 3,
+        "action": "is equal to",
+        "message": "[PROPERTIES LENGTH] Expect ROOT'properties length is equal to 3, but is 4"
+    }
+]
+```
+이런식으로 property의 수를 맞추지 않거나, property의 depth가 다르거나, value가 다르게 입력하였을때의 정보가 모두 표시된다.
+
+<br>
+<br>
+
+## Property Rule
 `property`에는 실제 조회시 결과에서 표시될 **property name**이 온다. <br>
 `rule`은 property와 연결된 value를 변화시킨다.<br>
 사용법은 아래와 같다.
@@ -42,9 +134,6 @@ Mock.mock({
 `value`의 타입에 따라 사용할 수 있는 `rule`이 달라지고, 같은 방식의 `rule`이라도 결과 값이 달라진다.
 
 <br>
-<br>
-
-## Property Rule
 
 ### > String value
 `min-max`는 value를 **min-max 범위 내 무작위 수 만큼 반복해서 문자열을 생성**한다.

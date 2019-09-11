@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "mock.js의 Random"
+title: "mock.js의 Random 객체"
 description:
 date: 2019-09-09 14:48:06
 main-class: 'js'
