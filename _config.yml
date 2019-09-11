@@ -41,5 +41,9 @@ links:
   - title: About Me
     url: /about
 
+# Plugins
+plugins: ['jekyll-sitemap']
+
+
 # exclude my node related stuff
 exclude: ['package.json', 'src', 'node_modules']
