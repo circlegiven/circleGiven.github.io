@@ -1,6 +1,0 @@
-# robotstxt.org/
-
-User-agent: *
-Allow: /
-
-Sitemap: https://circlegiven.github.io/sitemap.xml
