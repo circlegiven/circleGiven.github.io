@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import Image from "gatsby-image";
 import TextEllipsis from "components/atoms/textEllipsis";
 import PostInfo from "components/molecules/postInfo";
+import PostListThumbnail from "./postListItemThumbnail";
 
 const PostItem = styled(Link)`
     display: flex;
@@ -37,15 +37,7 @@ const TextContents = styled.div`
     }
 `;
 
-const Thumbnail = styled(Image)`
-    width: 120px;
-    height: 120px;
-    border-radius: 10px;
-`;
-
 const PostListItem = ({ node }) => {
-    const isCover = !!node.frontmatter.cover;
-
     return (
         <PostItem to={node.fields.slug}>
             <TextContents>
@@ -60,13 +52,7 @@ const PostListItem = ({ node }) => {
                     category={node.frontmatter.category}
                 />
             </TextContents>
-            {isCover && (
-                <div>
-                    <Thumbnail
-                        fixed={node.frontmatter.cover.childImageSharp.fixed}
-                    />
-                </div>
-            )}
+            <PostListThumbnail cover={node.frontmatter.cover}/>
         </PostItem>
     );
 };
