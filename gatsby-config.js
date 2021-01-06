@@ -109,12 +109,6 @@ module.exports = {
             }
         },
         {
-            resolve: `gatsby-plugin-s3`,
-            options: {
-                bucketName: siteConfig.s3Bucket
-            }
-        },
-        {
             resolve: `gatsby-plugin-styled-components`
         }
     ]
